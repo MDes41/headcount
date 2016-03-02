@@ -3,7 +3,7 @@ require_relative 'enrollment'
 class District
   attr_reader :name
 
-  def initialize(hash)
-    @name = hash[:location]
+  def initialize(name)
+    @name = name
   end
 end

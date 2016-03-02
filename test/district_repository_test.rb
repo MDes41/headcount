@@ -12,11 +12,11 @@ class DistrictRepositoryTest < Minitest::Test
     dr.load_data({
       :enrollment => {
         :kindergarten => "./data/Kindergartners in full-day program.csv"
-                    }
+                  }
                 })
 
     district = dr.find_by_name("ACADEMY 20").name
-    output = District.new({location: "ACADEMY 20"}).name
+    output = District.new("ACADEMY 20").name
 
     assert_equal output, district
   end
@@ -53,8 +53,8 @@ class DistrictRepositoryTest < Minitest::Test
                     }
                 })
 
-    assert_equal 11, dr.find_all_matching("Academy").count
+    assert_equal 1, dr.find_all_matching("Academy").count
   end
 
-  
+
 end
