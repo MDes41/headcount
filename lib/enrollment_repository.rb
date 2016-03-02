@@ -2,28 +2,14 @@ require 'pry'
 require 'csv'
 require_relative './district'
 require_relative './enrollment'
+require_relative 'load_data'
 
 class EnrollmentRepository
 
-  def load_data(file_categories)
-    @repo = file_categories.map do |category, files|
-      [category, load_files(files)]
-    end.to_h
-  end
+  attr_reader :repo
 
-  def load_files(files)
-    files.map do |type, file|
-      [type, load_csv(file)]
-    end.to_h
-  end
-
-  def load_csv(file_name)
-    csv = CSV.open(file_name, headers: true, header_converters: :symbol)
-    csv.to_a.map { |row| row.to_h }
-  end
-
-  def enrollments
-    kindergarten_enrollments = @repo[:enrollment][:kindergarten]
+  def load_data(hash_of_file_paths)
+    @repo = LoadData.new.load_data(hash_of_file_paths)
   end
 
   def find_by_name(name)
@@ -32,8 +18,12 @@ class EnrollmentRepository
     end
   end
 
+  def kindergarten_enrollments
+    repo[:enrollment][:kindergarten]
+  end
+
   def enrollments_grouped_by_district
-    enrollments.group_by do |enrollment|
+    kindergarten_enrollments.group_by do |enrollment|
       enrollment[:location]
     end
   end

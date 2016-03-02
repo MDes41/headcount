@@ -1,36 +1,37 @@
 require 'pry'
 require 'csv'
 require_relative './district'
+require_relative './load_data'
 
 class DistrictRepository
-
   attr_reader :repo
 
-  def load_data(file_categories)
-    @repo = file_categories.map do |file_category, files|
-      [file_category, load_each_file(files)]
-    end.to_h
+  def initialize
+    @repo = {:enrollment=>{:kindergarten=>nil}}
   end
 
-  def load_each_file(files)
-    files.map do |type, filename|
-      [type, load_csv_data(filename)]
-    end.to_h
+  def load_data(hash_of_file_paths)
+    @repo = LoadData.new.load_data(hash_of_file_paths)
   end
 
-  def load_csv_data(filename)
-    csv = CSV.open(filename, headers: true, header_converters: :symbol)
-    csv.to_a.map { |row| row.to_h }
+  def kindergarten_enrollments(repo)
+    repo[:enrollment][:kindergarten]
   end
 
-  def districts
-    kindergarten_enrollments = @repo[:enrollment][:kindergarten]
-    kindergarten_enrollments.map do |kindergarten_enrollment|
-      District.new(kindergarten_enrollment)
+  def enrollments_grouped_by_district(repo)
+    kindergarten_enrollments(repo).group_by do |enrollment|
+      enrollment[:location]
+    end
+  end
+
+  def create_district_names(repo)
+    enrollments_grouped_by_district(repo).keys.map do |district|
+      District.new(district)
     end
   end
 
   def find_by_name(name)
+    districts = create_district_names(repo)
     districts.find do |district|
       district.name.upcase == name.upcase
     end
@@ -38,6 +39,7 @@ class DistrictRepository
 
   def find_all_matching(name)
     result = []
+    districts = create_district_names(repo)
     result = districts.find_all do |district|
       district.name.upcase.include?(name.upcase)
     end
