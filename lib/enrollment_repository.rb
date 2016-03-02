@@ -13,6 +13,7 @@ class EnrollmentRepository
   end
 
   def find_by_name(name)
+    binding.pry
     instances_of_enrollment.find do |enrollment|
       enrollment.name.upcase == name.upcase
     end
@@ -28,21 +29,23 @@ class EnrollmentRepository
     end
   end
 
-  def participation_per_district
-    enrollments_grouped_by_district.map do |district, participation_data|
-      [district, match_year_and_participation(participation_data)]
-    end.to_h
-  end
-
   def match_year_and_participation(participation_data)
     participation_data.map do |row|
       [row[:timeframe], row[:data]]
     end.to_h
   end
 
+  def participation_for_district(district)
+    all_data_for_district = kindergarten_enrollments.find_all do |repo_row|
+      district == repo_row[:location]
+    end
+    match_year_and_participation(all_data_for_district)
+  end
+
   def instances_of_enrollment
-    participation_per_district.map do |district, participation|
-      modified_participation = floor_stuff(participation)
+    enrollments_grouped_by_district.keys.map do |district|
+      participation_for_district_hash = participation_for_district(district)
+      modified_participation = floor_stuff(participation_for_district_hash)
       Enrollment.new({        :name => district,
         :kindergarten_participation => modified_participation
                     })
