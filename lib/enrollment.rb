@@ -13,7 +13,7 @@ class Enrollment
   end
 
   def kindergarten_participation_in_year(year)
-    @kindergarten_participation[year.to_s]
+    @kindergarten_participation[year]
   end
 
 

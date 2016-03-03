@@ -51,7 +51,7 @@ class EnrollmentRepository
 
   def floor_stuff(participation)
     participation.map do |year, value|
-      [year, ('%.3f' % truncate(value)).to_s]
+      [year.to_i, ('%.3f' % truncate(value)).to_f]
     end.to_h
   end
 

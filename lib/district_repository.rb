@@ -29,7 +29,7 @@ class DistrictRepository
 
   def district_instances
     district_names.map do |district|
-      district_instance = District.new(district)
+      district_instance = District.new({ name: district })
       district_instance.enrollment = enrollment_for_district(district)
       district_instance
     end

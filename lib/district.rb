@@ -6,6 +6,6 @@ class District
   attr_accessor :enrollment
 
   def initialize(name)
-    @name = name
+    @name = name[:name]
   end
 end

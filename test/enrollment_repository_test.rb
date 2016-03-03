@@ -47,17 +47,17 @@ class EnrollmentRepositoryTest < Minitest::Test
                       }
                 })
     enrollment = er.find_by_name("ACADEMY 20")
-    output = {  "2007"=>"0.391",
-                "2006"=>"0.353",
-                "2005"=>"0.267",
-                "2004"=>"0.302",
-                "2008"=>"0.384",
-                "2009"=>"0.390",
-                "2010"=>"0.436",
-                "2011"=>"0.489",
-                "2012"=>"0.478",
-                "2013"=>"0.487",
-                "2014"=>"0.490"
+    output = {  "2007"=>0.391,
+                "2006"=>0.353,
+                "2005"=>0.267,
+                "2004"=>0.302,
+                "2008"=>0.384,
+                "2009"=>0.39,
+                "2010"=>0.436,
+                "2011"=>0.489,
+                "2012"=>0.478,
+                "2013"=>0.487,
+                "2014"=>0.49
               }
 
     assert_equal output, enrollment.kindergarten_participation_by_year
@@ -70,10 +70,10 @@ class EnrollmentRepositoryTest < Minitest::Test
           :kindergarten => "./data/Kindergartners in full-day program.csv"
                       }
                 })
-    enrollment = er.find_by_name("ACADEMY 20")
-    output = "0.436"
+    enrollment = er.find_by_name("GUNNISON WATERSHED RE1J")
+    output = 0.144
 
-    assert_equal output, enrollment.kindergarten_participation_in_year(2010)
+    assert_equal output, enrollment.kindergarten_participation_in_year(2004)
   end
 
   def test_that_kindergarten_participation_in_year_returns_nil_if_year_is_not_included
