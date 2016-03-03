@@ -1,6 +1,6 @@
-require "minitest/autorun"
-require "minitest/pride"
-require 'pry'
+require_relative "minitest/autorun"
+require_relative "minitest/pride"
+require_relative 'pry'
 require_relative "../lib/enrollment"
 
 class EnrollmentTest < MiniTest::Test
@@ -29,7 +29,7 @@ class EnrollmentTest < MiniTest::Test
       :kindergarten_participation => {"2010" => "0.391", "2011" => "0.353", "2012" => "0.267"}})
 
     data = {kindergarten_participation: {"2010" => "0.391", "2011" => "0.353", "2012" => "0.267"} }
-    
+
     output =data[:kindergarten_participation]["2010"]
     evaluated = e.kindergarten_participation_in_year(2010)
 

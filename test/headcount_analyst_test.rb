@@ -1,8 +1,8 @@
-require "minitest/autorun"
-require "minitest/pride"
+require_relative "minitest/autorun"
+require_relative "minitest/pride"
 require_relative '../lib/headcount_analyst'
 require_relative '../lib/district_repository'
-require 'pry'
+require_relative 'pry'
 
 
 class HeadcountAnalystTest < Minitest::Test

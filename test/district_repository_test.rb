@@ -1,6 +1,6 @@
-require "minitest/autorun"
-require "minitest/pride"
-require 'pry'
+require_relative "minitest/autorun"
+require_relative "minitest/pride"
+require_relative 'pry'
 require_relative "../lib/district_repository"
 require_relative "../lib/district"
 

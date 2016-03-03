@@ -1,5 +1,5 @@
-require 'pry'
-require 'csv'
+require_relative 'pry'
+require_relative 'csv'
 
 class LoadData
 

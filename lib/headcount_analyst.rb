@@ -1,4 +1,4 @@
-require 'pry'
+require_relative 'pry'
 
 class HeadcountAnalyst
 
