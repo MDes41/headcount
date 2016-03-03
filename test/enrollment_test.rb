@@ -30,7 +30,7 @@ class EnrollmentTest < MiniTest::Test
 
     data = {kindergarten_participation: {"2010" => "0.391", "2011" => "0.353", "2012" => "0.267"} }
 
-    output =data[:kindergarten_participation]["2010"]
+    output =data[:kindergarten_participation][2010]
     evaluated = e.kindergarten_participation_in_year(2010)
 
     assert_equal output, evaluated
