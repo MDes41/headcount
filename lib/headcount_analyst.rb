@@ -2,7 +2,7 @@ require 'pry'
 
 class HeadcountAnalyst
 
-  attr_reader :district_repo
+  attr_reader :district_repo, :district_names
 
   def initialize(district_repository)
     @district_repo = district_repository
@@ -47,15 +47,46 @@ class HeadcountAnalyst
     end / districts_graduation(district).values.count
   end
 
-  def high_school_graduation_rate_variation(district, district_to_compare)
+  def hs_graduation_rate_variation(district, district_to_compare)
     compare = district_to_compare[:against]
     (average_of_districts_graduation(district) /
     average_of_districts_graduation(compare)).round(3)
   end
 
   def kindergarten_participation_against_high_school_graduation(district)
-    kindergarten_participation_rate_variation(district, against: 'COLORADO') /
-    high_school_graduation_rate_variation(district, against: 'COLORADO')
+    (kindergarten_participation_rate_variation(district, against: 'COLORADO') /
+    hs_graduation_rate_variation(district, against: 'COLORADO')).round(3)
   end
+
+  def kindergarten_participation_correlates_with_high_school_graduation(for_district)
+    district = for_district[:for]
+    if district == "STATEWIDE"
+      @district_repo.district_names.map do |district|
+      result = find_if_variation_is_true_or_false(district)
+        false_array = Array.new
+        true_array = Array.new
+        if result == true
+          true_array.push(result)
+        else
+          false_array.push(result)
+        end
+      end
+      correlation_above_seventy_percent?(true_array, false_array)
+
+    else
+      find_if_variation_is_true_or_false(district)
+    end
+end
+
+  def correlation_above_seventy_percent?(true_array, false_array)
+    total_count = true_array.count + false_array.count
+    true_array.count > 0.7*(total_count) ? true : false
+  end
+
+  def find_if_variation_is_true_or_false(district)
+    variation = kindergarten_participation_against_high_school_graduation(district)
+    variation > 0.6 && variation < 1.5 ? true : false
+  end
+
 
 end

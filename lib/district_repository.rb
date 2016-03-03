@@ -23,14 +23,16 @@ class DistrictRepository
     end.keys
   end
 
-  def enrollment_for_district(district)
-    @enrollment_repo.find_by_name(district)
+  def enrollment_for_district
+    @enrollment_repo.enrollment_instances.group_by do |enrollment_instance|
+      enrollment_instance.name
+    end
   end
 
   def district_instances
     district_names.map do |district|
       district_instance = District.new({ name: district })
-      district_instance.enrollment = enrollment_for_district(district)
+      district_instance.enrollment = enrollment_for_district[district]
       district_instance
     end
   end

@@ -12,9 +12,10 @@ class HeadcountAnalystTest < Minitest::Test
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
-        :kindergarten => "./data/Kindergartners in full-day program.csv"
-                  }
-                })
+            :kindergarten => "./data/Kindergartners in full-day program.csv",
+  :high_school_graduation => "./data/High school graduation rates.csv"
+                    }
+              })
     ha = HeadcountAnalyst.new(dr)
     evaluate = ha.average_of_districts_participation("Academy 20")
 
@@ -26,9 +27,10 @@ class HeadcountAnalystTest < Minitest::Test
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
-        :kindergarten => "./data/Kindergartners in full-day program.csv"
-                  }
-                })
+            :kindergarten => "./data/Kindergartners in full-day program.csv",
+  :high_school_graduation => "./data/High school graduation rates.csv"
+                    }
+              })
     ha = HeadcountAnalyst.new(dr)
     evaluate = ha.kindergarten_participation_rate_variation('ACADEMY 20', :against => 'COLORADO')
 
@@ -40,9 +42,10 @@ class HeadcountAnalystTest < Minitest::Test
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
-        :kindergarten => "./data/Kindergartners in full-day program.csv"
-                  }
-                })
+            :kindergarten => "./data/Kindergartners in full-day program.csv",
+  :high_school_graduation => "./data/High school graduation rates.csv"
+                    }
+              })
     ha = HeadcountAnalyst.new(dr)
     evaluate = ha.kindergarten_participation_rate_variation('ACADEMY 20', :against => 'YUMA SCHOOL DISTRICT 1')
 
@@ -54,9 +57,10 @@ class HeadcountAnalystTest < Minitest::Test
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
-        :kindergarten => "./data/Kindergartners in full-day program.csv"
-                  }
-                })
+            :kindergarten => "./data/Kindergartners in full-day program.csv",
+  :high_school_graduation => "./data/High school graduation rates.csv"
+                    }
+              })
     ha = HeadcountAnalyst.new(dr)
     evaluate = ha.kindergarten_participation_rate_variation_trend('ACADEMY 20', :against => 'COLORADO')
 
@@ -74,5 +78,61 @@ class HeadcountAnalystTest < Minitest::Test
 
     assert_equal output, evaluate
   end
+
+  def test_kindergarten_participation_rate_variation_trend_calculates_trending_participation_rates
+    skip
+    dr = DistrictRepository.new
+    dr.load_data({
+      :enrollment => {
+            :kindergarten => "./data/Kindergartners in full-day program.csv",
+  :high_school_graduation => "./data/High school graduation rates.csv"
+                    }
+              })
+    ha = HeadcountAnalyst.new(dr)
+    evaluate = ha.kindergarten_participation_against_high_school_graduation('ACADEMY 20')
+
+    output = 0.641
+
+    assert_equal output, evaluate
+  end
+
+  def test_that_kindergarten_participation_correlates_with_high_school_graduation
+    skip
+    dr = DistrictRepository.new
+    dr.load_data({
+      :enrollment => {
+            :kindergarten => "./data/Kindergartners in full-day program.csv",
+  :high_school_graduation => "./data/High school graduation rates.csv"
+                    }
+              })
+    ha = HeadcountAnalyst.new(dr)
+    evaluate = ha.kindergarten_participation_correlates_with_high_school_graduation(for: "ACADEMY 20")
+
+    output = true
+
+    assert_equal output, evaluate
+  end
+
+  def test_that_kindergarten_participation_against_high_school_graduation_works_statewide
+    # skip
+    dr = DistrictRepository.new
+    dr.load_data({
+      :enrollment => {
+            :kindergarten => "./data/Kindergartners in full-day program.csv",
+  :high_school_graduation => "./data/High school graduation rates.csv"
+                    }
+              })
+    ha = HeadcountAnalyst.new(dr)
+    evaluate = ha.kindergarten_participation_correlates_with_high_school_graduation(for: "STATEWIDE")
+
+    output = true
+
+    assert_equal output, evaluate
+  end
+
+
+
+
+
 
 end

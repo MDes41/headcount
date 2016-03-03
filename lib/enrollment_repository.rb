@@ -10,6 +10,7 @@ class EnrollmentRepository
 
   def load_data(hash_of_file_paths)
     @repo ||= LoadData.new.load_data(hash_of_file_paths)
+    # binding.pry
   end
 
   def find_by_name(name)
@@ -26,38 +27,32 @@ class EnrollmentRepository
     repo[:enrollment][:high_school_graduation]
   end
 
-  def district_names
+  def district_groups_kg
     kindergarten_enrollments.group_by do |enrollment|
       enrollment[:location]
-    end.keys
-  end
-
-  def district_graduation_rates_hs(district)
-    high_school_enrollments.find_all do |graduation_by_district|
-      graduation_by_district[:location] == district
     end
   end
 
+  def district_groups_hs
+    high_school_enrollments.group_by do |graduation|
+      graduation[:location]
+    end
+  end
+  
   def create_hash_of_years_to_graduation_hs(district)
-    district_graduation_rates_hs(district).map do |row|
+    district_groups_hs[district].map do |row|
       [row[:timeframe], row[:data]]
     end.to_h
   end
 
-  def district_participation_data_kg(district)
-    kindergarten_enrollments.find_all do |kindergarten_enrollment|
-      kindergarten_enrollment[:location] == district
-    end
-  end
-
   def create_hash_of_years_to_participation_kg(district)
-    district_participation_data_kg(district).map do |row|
+    district_groups_kg[district].map do |row|
       [row[:timeframe], row[:data]]
     end.to_h
   end
 
   def enrollment_instances
-    district_names.map do |district|
+    district_groups_kg.keys.map do |district|
       participation = create_hash_of_years_to_participation_kg(district)
       graduation = create_hash_of_years_to_graduation_hs(district)
       Enrollment.new({        :name => district,
