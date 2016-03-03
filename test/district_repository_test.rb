@@ -17,7 +17,7 @@ class DistrictRepositoryTest < Minitest::Test
                 })
 
     district = dr.find_by_name("ACADEMY 20").name
-    output = District.new("ACADEMY 20").name
+    output = District.new(name: "ACADEMY 20").name
 
     assert_equal output, district
   end
@@ -72,7 +72,7 @@ class DistrictRepositoryTest < Minitest::Test
     district = dr.find_by_name("ACADEMY 20")
     result = district.enrollment.kindergarten_participation_in_year(2010)
 
-    assert_equal "0.436", result
+    assert_equal 0.436, result
   end
 
 

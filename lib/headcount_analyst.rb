@@ -27,7 +27,7 @@ class HeadcountAnalyst
   def kindergarten_participation_rate_variation_trend(district,compare_district)
     compare = compare_district[:against]
     districts_participation(district).map do |year, participation|
-      [year, compare_to_state_average(year, participation, compare).to_s]
+      [year, compare_to_state_average(year, participation, compare).to_f]
     end.to_h
   end
 
@@ -36,4 +36,26 @@ class HeadcountAnalyst
     districts_participation(district_comparing_against)[year].to_f
     '%.3f' % district_participation_compared_with_state
   end
+
+  def districts_graduation(district)
+    @district_repo.find_by_name(district).enrollment.high_school_graduation
+  end
+
+  def average_of_districts_graduation(district)
+    districts_graduation(district).values.reduce(0) do |sum, num|
+      sum += num.to_f
+    end / districts_graduation(district).values.count
+  end
+
+  def high_school_graduation_rate_variation(district, district_to_compare)
+    compare = district_to_compare[:against]
+    (average_of_districts_graduation(district) /
+    average_of_districts_graduation(compare)).round(3)
+  end
+
+  def kindergarten_participation_against_high_school_graduation(district)
+    kindergarten_participation_rate_variation(district, against: 'COLORADO') /
+    high_school_graduation_rate_variation(district, against: 'COLORADO')
+  end
+
 end
