@@ -8,6 +8,7 @@ require_relative "../lib/district"
 class DistrictRepositoryTest < Minitest::Test
 
   def test_find_by_name_finds_the_district_from_the_data_loaded
+    skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -22,6 +23,7 @@ class DistrictRepositoryTest < Minitest::Test
   end
 
   def test_find_by_name_finds_nil_if_name_is_not_a_district
+    skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -34,18 +36,9 @@ class DistrictRepositoryTest < Minitest::Test
     assert_equal nil, district
   end
 
-  def test_find_all_matching_returns_empty_array_if_no_name_fragment_is_matched
-    dr = DistrictRepository.new
-    dr.load_data({
-      :enrollment => {
-        :kindergarten => "./data/Kindergartners in full-day program.csv"
-                    }
-                })
-
-    assert_equal [], dr.find_all_matching("cant find me")
-  end
 
   def test_find_all_matching_returns_instances_of_matching_names
+    skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -56,7 +49,20 @@ class DistrictRepositoryTest < Minitest::Test
     assert_equal 1, dr.find_all_matching("Academy").count
   end
 
-  def test_district_repository_creates_enrollment_object_class
+  def test_find_all_matching_returns_empty_array_if_no_name_fragment_is_matched
+    skip
+    dr = DistrictRepository.new
+    dr.load_data({
+      :enrollment => {
+        :kindergarten => "./data/Kindergartners in full-day program.csv"
+      }
+      })
+
+      assert_equal [], dr.find_all_matching("cant find me")
+  end
+
+  def test_district_repository_creates_enrollment_instances_on_district_instance
+    skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {

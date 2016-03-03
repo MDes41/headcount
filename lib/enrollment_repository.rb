@@ -5,16 +5,15 @@ require_relative './enrollment'
 require_relative 'load_data'
 
 class EnrollmentRepository
-
-  attr_reader :repo
+  
+  attr_accessor :repo
 
   def load_data(hash_of_file_paths)
-    @repo = LoadData.new.load_data(hash_of_file_paths)
+    @repo ||= LoadData.new.load_data(hash_of_file_paths)
   end
 
   def find_by_name(name)
-    binding.pry
-    instances_of_enrollment.find do |enrollment|
+    enrollment_instances.find do |enrollment|
       enrollment.name.upcase == name.upcase
     end
   end
@@ -23,31 +22,29 @@ class EnrollmentRepository
     repo[:enrollment][:kindergarten]
   end
 
-  def enrollments_grouped_by_district
+  def district_names
     kindergarten_enrollments.group_by do |enrollment|
       enrollment[:location]
+    end.keys
+  end
+
+  def district_participation_data(district)
+    kindergarten_enrollments.find_all do |kindergarten_enrollment|
+      kindergarten_enrollment[:location] == district
     end
   end
 
-  def match_year_and_participation(participation_data)
-    participation_data.map do |row|
+  def create_hash_of_years_to_participation(district)
+    district_participation_data(district).map do |row|
       [row[:timeframe], row[:data]]
     end.to_h
   end
 
-  def participation_for_district(district)
-    all_data_for_district = kindergarten_enrollments.find_all do |repo_row|
-      district == repo_row[:location]
-    end
-    match_year_and_participation(all_data_for_district)
-  end
-
-  def instances_of_enrollment
-    enrollments_grouped_by_district.keys.map do |district|
-      participation_for_district_hash = participation_for_district(district)
-      modified_participation = floor_stuff(participation_for_district_hash)
+  def enrollment_instances
+    district_names.map do |district|
+      participation = create_hash_of_years_to_participation(district)
       Enrollment.new({        :name => district,
-        :kindergarten_participation => modified_participation
+        :kindergarten_participation => floor_stuff(participation)
                     })
     end
   end

@@ -27,9 +27,6 @@ class EnrollmentRepositoryTest < Minitest::Test
     assert_equal output.name, enrollment.name
   end
 
-  ##test_find_all_matching_returns_empty_array_if_no_fragment_is_found
-  ##test_find_all_matching_returns_names_of_all_matching
-
   def test_that_kindergarten_participation_groups_by_district_name
     er = EnrollmentRepository.new
     er.load_data({
@@ -37,9 +34,8 @@ class EnrollmentRepositoryTest < Minitest::Test
           :kindergarten => "./data/Kindergartners in full-day program.csv"
                       }
                 })
-    # enrollment = er.find_by_name("ACADEMY 20")
 
-    assert_equal "Colorado", er.instances_of_enrollment.first.name
+    assert_equal "Colorado", er.enrollment_instances.first.name
 
   end
 

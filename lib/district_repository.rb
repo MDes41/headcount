@@ -5,38 +5,38 @@ require_relative './load_data'
 require_relative './enrollment_repository'
 
 class DistrictRepository
-  attr_reader :repo, :enrollment_repo, :enrollment_object
-
-  def initialize
-    @repo = {:enrollment=>{:kindergarten=>nil}}
-  end
+  attr_reader :repo, :enrollment_repo
 
   def load_data(hash_of_file_paths)
-    @repo = LoadData.new.load_data(hash_of_file_paths)
-    @enrollment_object = EnrollmentRepository.new
-    @enrollment_repo = @enrollment_object.load_data(hash_of_file_paths)
+    @repo ||= LoadData.new.load_data(hash_of_file_paths)
+    @enrollment_repo ||= EnrollmentRepository.new
+    enrollment_repo.repo ||= @repo
   end
 
-  def kindergarten_enrollments(repo)
-    repo[:enrollment][:kindergarten]
+  def kindergarten_enrollments
+    @repo[:enrollment][:kindergarten]
   end
 
-  def enrollments_grouped_by_district(repo)
-    kindergarten_enrollments(repo).group_by do |enrollment|
+  def district_names
+    kindergarten_enrollments.group_by do |enrollment|
       enrollment[:location]
-    end
+    end.keys
   end
 
-  def district_instances_with_enrollment(repo)
-    enrollments_grouped_by_district(repo).keys.map do |district|
-      district_object = District.new(district)
-      district_object.enrollment = enrollment_object.find_by_name(district)
-      district_object
+  def enrollment_for_district(district)
+    @enrollment_repo.find_by_name(district)
+  end
+
+  def district_instances
+    district_names.map do |district|
+      district_instance = District.new(district)
+      district_instance.enrollment = enrollment_for_district(district)
+      district_instance
     end
   end
 
   def find_by_name(name)
-    districts = district_instances_with_enrollment(repo)
+    districts = district_instances
     districts.find do |district|
       district.name.upcase == name.upcase
     end
@@ -44,7 +44,7 @@ class DistrictRepository
 
   def find_all_matching(name)
     result = []
-    districts = district_instances_with_enrollment(repo)
+    districts = district_instances
     result = districts.find_all do |district|
       district.name.upcase.include?(name.upcase)
     end
