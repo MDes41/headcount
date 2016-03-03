@@ -1,5 +1,5 @@
-require_relative 'pry'
-require_relative 'csv'
+require 'pry'
+require 'csv'
 require_relative './district'
 require_relative './enrollment'
 require_relative 'load_data'

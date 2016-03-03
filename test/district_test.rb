@@ -1,5 +1,6 @@
-require_relative "minitest/autorun"
-require_relative "./lib/district"
+require "minitest/autorun"
+require 'minitest/pride'
+require_relative "../lib/district"
 
 class DistrictTest <Minitest::Test
 

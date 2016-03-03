@@ -1,6 +1,6 @@
-require_relative "minitest/autorun"
-require_relative "minitest/pride"
-require_relative "./lib/enrollment_repository"
+require "minitest/autorun"
+require "minitest/pride"
+require_relative "../lib/enrollment_repository"
 
 class EnrollmentRepositoryTest < Minitest::Test
 
