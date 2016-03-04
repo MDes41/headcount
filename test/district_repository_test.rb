@@ -24,7 +24,7 @@ class DistrictRepositoryTest < Minitest::Test
   end
 
   def test_find_by_name_finds_nil_if_name_is_not_a_district
-    skip
+    # skip
     dr = DistrictRepository.new
     dr.load_data({
     :enrollment => {
@@ -40,7 +40,7 @@ class DistrictRepositoryTest < Minitest::Test
 
 
   def test_find_all_matching_returns_instances_of_matching_names
-    skip
+    # skip
     dr = DistrictRepository.new
     dr.load_data({
     :enrollment => {
@@ -53,7 +53,7 @@ class DistrictRepositoryTest < Minitest::Test
   end
 
   def test_find_all_matching_returns_empty_array_if_no_name_fragment_is_matched
-    skip
+    # skip
     dr = DistrictRepository.new
     dr.load_data({
     :enrollment => {
@@ -66,7 +66,7 @@ class DistrictRepositoryTest < Minitest::Test
   end
 
   def test_district_repository_creates_enrollment_instances_on_district_instance
-    skip
+    # skip
     dr = DistrictRepository.new
     dr.load_data({
     :enrollment => {

@@ -8,7 +8,7 @@ require 'pry'
 class HeadcountAnalystTest < Minitest::Test
 
   def test_average_districts_participation_for_one_district_is_calculated_correctly
-    skip
+    # skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -23,7 +23,7 @@ class HeadcountAnalystTest < Minitest::Test
   end
 
   def test_kindergarten_participation_rate_variation_gets_the_correct_value
-    skip
+    # skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -38,7 +38,7 @@ class HeadcountAnalystTest < Minitest::Test
   end
 
   def test_kindergarten_participation_rate_variation_against_another_district_gets_the_correct_value
-    skip
+    # skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -53,7 +53,7 @@ class HeadcountAnalystTest < Minitest::Test
   end
 
   def test_kindergarten_participation_rate_variation_trend_calculates_trending_participation_rates
-    skip
+    # skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -80,7 +80,7 @@ class HeadcountAnalystTest < Minitest::Test
   end
 
   def test_kindergarten_participation_rate_variation_trend_calculates_trending_participation_rates
-    skip
+    # skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -97,7 +97,7 @@ class HeadcountAnalystTest < Minitest::Test
   end
 
   def test_that_kindergarten_participation_correlates_with_high_school_graduation
-    skip
+    # skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {

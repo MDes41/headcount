@@ -1,11 +1,13 @@
 class Enrollment
 
-  attr_reader :name, :kindergarten_participation, :high_school_graduation
+  attr_reader :name, :kindergarten_participation
+  attr_accessor :high_school_graduation
 
   def initialize(hash)
     @name = hash[:name]
     @kindergarten_participation = hash[:kindergarten_participation]
-    @high_school_graduation = hash[:high_school_graduation]
+    # @high_school_graduation = hash[:high_school_graduation]
+    # @test = hash[:this_is_a_test]
   end
 
 

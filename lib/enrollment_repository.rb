@@ -10,7 +10,6 @@ class EnrollmentRepository
 
   def load_data(hash_of_file_paths)
     @repo ||= LoadData.new.load_data(hash_of_file_paths)
-    # binding.pry
   end
 
   def find_by_name(name)
@@ -38,7 +37,7 @@ class EnrollmentRepository
       graduation[:location]
     end
   end
-  
+
   def create_hash_of_years_to_graduation_hs(district)
     district_groups_hs[district].map do |row|
       [row[:timeframe], row[:data]]
@@ -52,13 +51,24 @@ class EnrollmentRepository
   end
 
   def enrollment_instances
+    result = create_enrollment_instances_with_name_and_kindergarten
+    add_hs_data_to_enrollment_instances(result) if high_school_enrollments != nil
+    result
+  end
+
+  def create_enrollment_instances_with_name_and_kindergarten
     district_groups_kg.keys.map do |district|
       participation = create_hash_of_years_to_participation_kg(district)
-      graduation = create_hash_of_years_to_graduation_hs(district)
-      Enrollment.new({        :name => district,
-        :kindergarten_participation => floor_stuff(participation),
-            :high_school_graduation => floor_stuff(graduation)
-                    })
+      Enrollment.new  ({        :name => district,
+          :kindergarten_participation => floor_stuff(participation)
+                      })
+    end
+  end
+
+  def add_hs_data_to_enrollment_instances(result)
+    result.each do |enrollment_instance|
+      graduation = create_hash_of_years_to_graduation_hs(enrollment_instance.name)
+      enrollment_instance.high_school_graduation = floor_stuff(graduation)
     end
   end
 

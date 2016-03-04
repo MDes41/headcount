@@ -41,6 +41,8 @@ class HeadcountAnalyst
     @district_repo.find_by_name(district).enrollment.high_school_graduation
   end
 
+  # def state_average_of_graduation(state)
+
   def average_of_districts_graduation(district)
     districts_graduation(district).values.reduce(0) do |sum, num|
       sum += num.to_f
@@ -61,10 +63,10 @@ class HeadcountAnalyst
   def kindergarten_participation_correlates_with_high_school_graduation(for_district)
     district = for_district[:for]
     if district == "STATEWIDE"
+      false_array = Array.new
+      true_array = Array.new
       @district_repo.district_names.map do |district|
       result = find_if_variation_is_true_or_false(district)
-        false_array = Array.new
-        true_array = Array.new
         if result == true
           true_array.push(result)
         else
@@ -72,11 +74,10 @@ class HeadcountAnalyst
         end
       end
       correlation_above_seventy_percent?(true_array, false_array)
-
     else
       find_if_variation_is_true_or_false(district)
     end
-end
+  end
 
   def correlation_above_seventy_percent?(true_array, false_array)
     total_count = true_array.count + false_array.count

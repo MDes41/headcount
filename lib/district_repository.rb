@@ -30,9 +30,10 @@ class DistrictRepository
   end
 
   def district_instances
+    hash_of_enrollments ||= enrollment_for_district
     district_names.map do |district|
       district_instance = District.new({ name: district })
-      district_instance.enrollment = enrollment_for_district[district]
+      district_instance.enrollment = hash_of_enrollments[district].first
       district_instance
     end
   end
