@@ -72,6 +72,8 @@ class HeadcountAnalystTest < Minitest::Test
                2013=>0.694,
                2014=>0.661 }
 
+               
+
     assert_equal output, evaluate
   end
 
