@@ -1,0 +1,1790 @@
+events: wall_time
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+fn=HeadcountAnalyst#districts_graduation
+40 11
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district_repository.rb
+cfn=DistrictRepository#find_by_name
+calls=4 41
+41 872232
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+fn=HeadcountAnalyst#average_of_districts_graduation
+46 8
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+cfn=HeadcountAnalyst#districts_graduation
+calls=4 49
+49 872243
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#values
+calls=4 49
+49 17
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#reduce
+calls=2 49
+49 16
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#count
+calls=2 49
+49 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Float#/
+calls=2 49
+49 1
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+fn=HeadcountAnalyst#hs_graduation_rate_variation
+52 5
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+cfn=HeadcountAnalyst#average_of_districts_graduation
+calls=2 55
+55 872287
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Float#round
+calls=1 55
+55 2
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Float#round
+0 16
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Float#/
+0 3
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Array#count
+0 5
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Fixnum#+
+0 3
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Float#to_f
+0 5
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Enumerable#reduce
+0 5
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=2 16
+16 20
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=2 47
+47 13
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Hash#values
+0 23
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=String#upcase
+0 14
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Enumerable#find
+0 11
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=4 43
+43 19
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=4 43
+43 17
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Array#first
+0 238
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district.rb
+fn=District#initialize
+8 477
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district_repository.rb
+fn=DistrictRepository#kindergarten_enrollments
+16 9
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district_repository.rb
+fn=DistrictRepository#district_names
+20 18
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district_repository.rb
+cfn=DistrictRepository#kindergarten_enrollments
+calls=4 23
+23 5
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#group_by
+calls=4 23
+23 3063
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#keys
+calls=4 23
+23 16
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district_repository.rb
+cfn=DistrictRepository#kindergarten_enrollments
+calls=4 23
+23 4
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#group_by
+calls=4 23
+23 2820
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#keys
+calls=4 23
+23 19
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment.rb
+fn=Enrollment#initialize
+5 1426
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=String#%
+0 42693
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Fixnum#/
+0 4331
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Float#floor
+0 5088
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Float#*
+0 3974
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=String#to_f
+0 14165
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+fn=EnrollmentRepository#truncate
+71 18597
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#to_f
+calls=11584 72
+72 2831
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Float#*
+calls=11584 72
+72 1971
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Float#floor
+calls=11584 72
+72 2424
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Fixnum#/
+calls=11584 72
+72 2260
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#to_f
+calls=11584 72
+72 3043
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Float#*
+calls=11584 72
+72 2003
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Float#floor
+calls=11584 72
+72 2664
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Fixnum#/
+calls=11584 72
+72 2071
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=String#to_i
+0 7819
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+fn=EnrollmentRepository#floor_stuff
+65 1897
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#map
+calls=1448 68
+68 68857
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#to_h
+calls=1448 68
+68 2811
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#map
+calls=1448 68
+68 68801
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#to_h
+calls=1448 68
+68 2901
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+fn=EnrollmentRepository#high_school_enrollments
+26 590
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+fn=EnrollmentRepository#district_groups_hs
+36 1136
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#high_school_enrollments
+calls=724 37
+37 305
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#group_by
+calls=724 37
+37 280359
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#high_school_enrollments
+calls=724 37
+37 285
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#group_by
+calls=724 37
+37 278154
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+fn=EnrollmentRepository#create_hash_of_years_to_graduation_hs
+42 1507
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#district_groups_hs
+calls=724 45
+45 281210
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#map
+calls=724 45
+45 2471
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#to_h
+calls=724 45
+45 1806
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#district_groups_hs
+calls=724 45
+45 279029
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#map
+calls=724 45
+45 2673
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#to_h
+calls=724 45
+45 1545
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+fn=EnrollmentRepository#create_hash_of_years_to_participation_kg
+48 1641
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#district_groups_kg
+calls=724 51
+51 500718
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#map
+calls=724 51
+51 4794
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#to_h
+calls=724 51
+51 3755
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#district_groups_kg
+calls=724 51
+51 494313
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#map
+calls=724 51
+51 4780
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#to_h
+calls=724 51
+51 4053
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Hash#keys
+0 58
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Enumerable#group_by
+0 3110
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=4 31
+31 2951
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=724 31
+31 499188
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=724 37
+37 279385
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=4 27
+27 577
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=4 21
+21 3059
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=4 31
+31 2860
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=724 31
+31 492668
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=724 37
+37 277520
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=4 27
+27 543
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=4 21
+21 2816
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+fn=EnrollmentRepository#kindergarten_enrollments
+22 607
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+fn=EnrollmentRepository#district_groups_kg
+30 1107
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#kindergarten_enrollments
+calls=4 31
+31 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#group_by
+calls=4 31
+31 2954
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#kindergarten_enrollments
+calls=724 31
+31 284
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#group_by
+calls=724 31
+31 499880
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#kindergarten_enrollments
+calls=4 31
+31 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#group_by
+calls=4 31
+31 2862
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#kindergarten_enrollments
+calls=724 31
+31 319
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#group_by
+calls=724 31
+31 493457
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+fn=EnrollmentRepository#enrollment_instances
+54 11
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#district_groups_kg
+calls=4 55
+55 2963
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#keys
+calls=4 55
+55 12
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#map
+calls=4 55
+55 872328
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#district_groups_kg
+calls=4 55
+55 2871
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#keys
+calls=4 55
+55 11
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#map
+calls=4 55
+55 864075
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district_repository.rb
+fn=DistrictRepository#enrollment_for_district
+26 16
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#enrollment_instances
+calls=4 27
+27 875308
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#group_by
+calls=4 27
+27 582
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#enrollment_instances
+calls=4 27
+27 866963
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#group_by
+calls=4 27
+27 547
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district_repository.rb
+fn=DistrictRepository#district_instances
+32 24
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district_repository.rb
+cfn=DistrictRepository#enrollment_for_district
+calls=4 33
+33 875899
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district_repository.rb
+cfn=DistrictRepository#district_names
+calls=4 34
+34 3094
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#map
+calls=4 34
+34 1968
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district_repository.rb
+cfn=DistrictRepository#enrollment_for_district
+calls=4 33
+33 867517
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district_repository.rb
+cfn=DistrictRepository#district_names
+calls=4 34
+34 2851
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#map
+calls=4 34
+34 1824
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district_repository.rb
+fn=DistrictRepository#find_by_name
+41 17
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district_repository.rb
+cfn=DistrictRepository#district_instances
+calls=4 42
+42 880973
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#find
+calls=4 43
+43 25
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district_repository.rb
+cfn=DistrictRepository#district_instances
+calls=4 42
+42 872204
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#find
+calls=4 43
+43 22
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+fn=HeadcountAnalyst#districts_participation
+11 9
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district_repository.rb
+cfn=DistrictRepository#find_by_name
+calls=4 12
+12 881009
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+fn=HeadcountAnalyst#average_of_districts_participation
+15 8
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+cfn=HeadcountAnalyst#districts_participation
+calls=4 18
+18 881018
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#values
+calls=4 18
+18 6
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#reduce
+calls=2 18
+18 22
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#count
+calls=2 18
+18 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Float#/
+calls=2 18
+18 2
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+fn=HeadcountAnalyst#kindergarten_participation_rate_variation
+21 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+cfn=HeadcountAnalyst#average_of_districts_participation
+calls=2 24
+24 881059
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Float#round
+calls=1 24
+24 12
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+fn=HeadcountAnalyst#kindergarten_participation_against_high_school_graduation
+58 5
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+cfn=HeadcountAnalyst#kindergarten_participation_rate_variation
+calls=1 60
+60 881074
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+cfn=HeadcountAnalyst#hs_graduation_rate_variation
+calls=1 60
+60 872294
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Float#round
+calls=1 60
+60 2
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+fn=HeadcountAnalyst#find_if_variation_is_true_or_false
+89 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+cfn=HeadcountAnalyst#kindergarten_participation_against_high_school_graduation
+calls=1 90
+90 1753375
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+fn=HeadcountAnalyst#kindergarten_participation_correlates_with_high_school_graduation
+63 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+cfn=HeadcountAnalyst#find_if_variation_is_true_or_false
+calls=1 80
+80 1753378
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+fn=HeadcountAnalyst#initialize
+7 2
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Array#to_h
+0 16878
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=CSV::Row#each
+509 1528
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=2896 510
+510 2227
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Enumerable#to_h
+0 2462
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV::Row#each
+calls=2896 20
+20 3755
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Array#zip
+0 3346
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=CSV::Row#initialize
+237 2802
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=2 239
+239 7
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#zip
+calls=2 243
+243 6
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=2894 239
+239 5936
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#zip
+calls=2894 243
+243 3340
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=String#to_sym
+0 10
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=String#strip
+0 3
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=String#downcase
+0 3
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Proc#arity
+0 4
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Enumerator#with_index
+0 1858
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#map
+calls=2896 2198
+2198 8726
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#map
+calls=2 2198
+2198 8
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=CSV#convert_fields
+2194 1988
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#map
+calls=2896 2198
+2198 1914
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerator#with_index
+calls=2896 2198
+2198 10583
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#map
+calls=2 2198
+2198 4
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerator#with_index
+calls=2 2198
+2198 9
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=CSV#parse_headers
+2223 3340
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=NilClass#nil?
+calls=2 2224
+2224 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Module#===
+calls=4 2225
+2225 0
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#nil?
+calls=2896 2224
+2224 637
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#convert_fields
+calls=2896 2250
+2250 14484
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=2 2241
+2241 6
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#class
+calls=2896 2250
+2250 678
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#include?
+calls=2 2243
+2243 3
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#shift
+calls=2 2246
+2246 91
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Class#new
+calls=2894 2250
+2250 14432
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#nil?
+calls=2 2224
+2224 1
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#class
+calls=2 2250
+2250 0
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#convert_fields
+calls=2 2250
+2250 14
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Class#new
+calls=2 2250
+2250 20
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=String#[]
+0 5451
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=String#split
+0 4140
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=String#sub!
+0 6624
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Kernel#loop
+0 11654
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=IO#gets
+calls=2898 1807
+1807 3014
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#sub!
+calls=2896 1811
+1811 6618
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#split
+calls=2896 1834
+1834 4138
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=2896 1845
+1845 23139
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#parse_headers
+calls=2896 1913
+1913 33674
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=IO#gets
+calls=2 1807
+1807 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#sub!
+calls=2 1811
+1811 5
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#split
+calls=2 1834
+1834 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=2 1845
+1845 16
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#parse_headers
+calls=2 1913
+1913 40
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=CSV#header_row?
+1771 1112
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=NilClass#nil?
+calls=2 1772
+1772 0
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#nil?
+calls=2896 1772
+1772 625
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#nil?
+calls=2 1772
+1772 1
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=CSV#shift
+1782 3107
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#header_row?
+calls=2898 1789
+1789 1735
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Class#new
+calls=2898 1803
+1803 2580
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#loop
+calls=2898 1805
+1805 82236
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#header_row?
+calls=2 1789
+1789 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Class#new
+calls=2 1803
+1803 6
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#loop
+calls=2 1805
+1805 80
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=CSV#each
+1745 1292
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#block_given?
+calls=2 1746
+1746 0
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#shift
+calls=2898 1748
+1748 89658
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Enumerable#to_a
+0 4
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#each
+calls=2 20
+20 90951
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Kernel#block_given?
+0 3
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=CSV#init_comments
+2156 4
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#delete
+calls=2 2157
+2157 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#is_a?
+calls=2 2158
+2158 1
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Kernel#instance_variable_get
+0 3
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Module#===
+0 2
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=CSV#add_converter
+2171 9
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#nil?
+calls=2 2172
+2172 0
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Module#===
+calls=2 2176
+2176 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Symbol#to_s
+calls=2 2182
+2182 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#instance_variable_get
+calls=2 2182
+2182 3
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Kernel#class
+0 679
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=CSV#header_convert
+1729 5
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#class
+calls=2 1730
+1730 1
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#add_converter
+calls=2 1730
+1730 16
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Method#call
+0 3
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#header_convert
+calls=2 2130
+2130 22
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Array#each
+0 1580209
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#is_a?
+calls=2 2127
+2127 1
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Method#call
+calls=2 2130
+2130 25
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#[]
+calls=11584 1846
+1846 5449
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#=~
+calls=11584 1846
+1846 7257
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#nil?
+calls=8 2200
+2200 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Proc#arity
+calls=8 2201
+2201 4
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#encode
+calls=8 1003
+1003 7
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#downcase
+calls=8 1003
+1003 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#strip
+calls=8 1003
+1003 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#gsub
+calls=16 1003
+1003 47
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#to_sym
+calls=8 1003
+1003 10
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#is_a?
+calls=8 2207
+2207 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#is_a?
+calls=8 2241
+2241 1
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#[]
+calls=8 1846
+1846 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#=~
+calls=8 1846
+1846 5
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#is_a?
+calls=8 239
+239 1
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#is_a?
+calls=11576 239
+239 2173
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#upcase
+calls=12 44
+44 7
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Float#to_f
+calls=22 17
+17 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Fixnum#+
+calls=2 17
+17 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#upcase
+calls=12 44
+44 7
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Float#to_f
+calls=10 48
+48 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Fixnum#+
+calls=2 48
+48 1
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=CSV#init_headers
+2139 9
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#delete
+calls=6 2142
+2142 1
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#init_converters
+calls=2 2147
+2147 62
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=NilClass#nil?
+0 42
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Kernel#method
+0 7
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=String#sub
+0 13
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Kernel#instance_variable_set
+0 6
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Array#initialize
+0 694
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Symbol#to_s
+0 6
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=CSV#init_converters
+2109 24
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#delete
+calls=4 2135
+2135 4
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Symbol#to_s
+calls=4 2117
+2117 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Class#new
+calls=2 2114
+2114 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#instance_variable_set
+calls=2 2114
+2114 4
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#sub
+calls=2 2117
+2117 9
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#method
+calls=2 2117
+2117 5
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=NilClass#nil?
+calls=2 2120
+2120 40
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Symbol#to_s
+calls=4 2117
+2117 1
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Class#new
+calls=2 2114
+2114 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#instance_variable_set
+calls=2 2114
+2114 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#sub
+calls=2 2117
+2117 4
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#method
+calls=2 2117
+2117 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#nil?
+calls=2 2120
+2120 1
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#is_a?
+calls=2 2122
+2122 4
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=2 2126
+2126 31
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#delete
+calls=2 2135
+2135 4
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=String#gsub
+0 74
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=CSV#escape_re
+2273 9
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#gsub
+calls=4 2274
+2274 27
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=CSV#init_parsers
+2078 20
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#delete
+calls=4 2081
+2081 2
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#escape_re
+calls=4 2085
+2085 36
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#encode_re
+calls=8 2086
+2086 106
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#encode_str
+calls=2 2086
+2086 11
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Kernel#lambda
+0 4
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=String#==
+0 3
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Fixnum#zero?
+0 1
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Numeric#nonzero?
+0 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Fixnum#zero?
+calls=2 2029
+2029 1
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=IO#rewind
+0 5
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=String#=~
+0 7284
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Regexp#initialize
+0 48
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=CSV#encode_re
+2281 14
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#encode_str
+calls=2 2282
+2282 9
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Class#new
+calls=2 2282
+2282 21
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#encode_str
+calls=8 2282
+2282 62
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Class#new
+calls=8 2282
+2282 35
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=String#end_with?
+0 5
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Array#join
+0 21
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Encoding#name
+0 23
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Array#map
+0 14889
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Encoding#name
+calls=8 2290
+2290 7
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#encode
+calls=8 2290
+2290 6
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Encoding#name
+calls=2 2290
+2290 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#encode
+calls=2 2290
+2290 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Encoding#name
+calls=26 2290
+2290 12
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#encode
+calls=26 2290
+2290 22
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Encoding#name
+calls=2 2290
+2290 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#encode
+calls=2 2290
+2290 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=11584 2199
+2199 2224
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#each
+calls=8 2199
+2199 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#to_h
+calls=2896 20
+20 6217
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#create_hash_of_years_to_participation_kg
+calls=724 56
+56 510061
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#create_hash_of_years_to_graduation_hs
+calls=724 57
+57 286268
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#floor_stuff
+calls=1448 58
+58 72613
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Class#new
+calls=724 58
+58 1696
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Class#new
+calls=724 35
+35 791
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#first
+calls=724 36
+36 113
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#create_hash_of_years_to_participation_kg
+calls=724 56
+56 503994
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#create_hash_of_years_to_graduation_hs
+calls=724 57
+57 283973
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#floor_stuff
+calls=1448 58
+58 72654
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Class#new
+calls=724 58
+58 1729
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Class#new
+calls=724 35
+35 776
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#first
+calls=724 36
+36 126
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=CSV#encode_str
+2289 13
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#map
+calls=4 2290
+2290 22
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#join
+calls=4 2290
+2290 7
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#map
+calls=2 2290
+2290 6
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#join
+calls=2 2290
+2290 1
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#map
+calls=8 2290
+2290 50
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#join
+calls=8 2290
+2290 8
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#map
+calls=2 2290
+2290 4
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#join
+calls=2 2290
+2290 5
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=IO#gets
+0 3034
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=IO#pos
+0 5
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Array#include?
+0 6
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=String#to_s
+0 3
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Hash#delete
+0 19
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=CSV#init_separators
+1979 51
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#delete
+calls=8 2048
+2048 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#to_s
+calls=6 2045
+2045 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#encode
+calls=6 2045
+2045 5
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#include?
+calls=2 1995
+1995 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=IO#pos
+calls=2 2003
+2003 5
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=IO#gets
+calls=2 2009
+2009 17
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#encode_str
+calls=4 2056
+2056 34
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#end_with?
+calls=2 2011
+2011 5
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#encode_re
+calls=2 2016
+2016 35
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#=~
+calls=2 2016
+2016 22
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=IO#rewind
+calls=2 2023
+2023 5
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Numeric#nonzero?
+calls=2 2029
+2029 4
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#==
+calls=2 2041
+2041 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#lambda
+calls=4 2060
+2060 4
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=String#freeze
+0 2
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=String#encode
+0 49
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=IO#external_encoding
+0 2
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=IO#internal_encoding
+0 2
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Kernel#respond_to?
+0 5
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=CSV#raw_encoding
+2299 5
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#respond_to?
+calls=2 2300
+2300 5
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=IO#internal_encoding
+calls=2 2301
+2301 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=IO#external_encoding
+calls=2 2301
+2301 2
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Kernel#nil?
+0 1269
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=CSV#initialize
+1508 51
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#nil?
+calls=2 1509
+1509 1
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#merge
+calls=2 1514
+1514 14
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#is_a?
+calls=2 1517
+1517 2
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#raw_encoding
+calls=2 1519
+1519 14
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#encode
+calls=4 1536
+1536 5
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#freeze
+calls=2 1535
+1535 2
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#init_separators
+calls=2 1538
+1538 199
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#init_parsers
+calls=2 1539
+1539 175
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#init_converters
+calls=2 1540
+1540 81
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#init_headers
+calls=2 1541
+1541 72
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#init_comments
+calls=2 1542
+1542 7
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#delete
+calls=6 1546
+1546 3
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=File#initialize
+0 51
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=<Class::IO>#open
+0 4
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=File#initialize
+calls=2 1265
+1265 51
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Hash#initialize_copy
+0 15
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Kernel#initialize_dup
+0 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#initialize_copy
+calls=2 1263
+1263 5
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#initialize_copy
+calls=2 1514
+1514 10
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Hash#merge
+0 8
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#initialize_dup
+calls=2 1263
+1263 7
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#initialize_dup
+calls=2 1514
+1514 11
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Array#pop
+0 1
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Kernel#is_a?
+0 2187
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Array#last
+0 1
+
+fl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+fn=<Class::CSV>#open
+1258 19
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#last
+calls=2 1260
+1260 1
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#is_a?
+calls=2 1260
+1260 1
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#pop
+calls=2 1260
+1260 1
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#merge
+calls=2 1263
+1263 12
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=<Class::IO>#open
+calls=2 1265
+1265 55
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Class#new
+calls=2 1273
+1273 632
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Kernel#block_given?
+calls=2 1280
+1280 3
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/load_data.rb
+fn=LoadData#load_csv_data
+18 12
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=<Class::CSV>#open
+calls=2 19
+19 724
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#to_a
+calls=2 20
+20 90955
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#map
+calls=2 20
+20 7252
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/load_data.rb
+fn=LoadData#load_each_file
+12 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#map
+calls=1 15
+15 98950
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#to_h
+calls=1 15
+15 3
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Hash#each
+0 37128
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/load_data.rb
+cfn=LoadData#load_each_file
+calls=1 8
+8 98956
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/load_data.rb
+cfn=LoadData#load_csv_data
+calls=2 14
+14 98943
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#to_i
+calls=11584 67
+67 3766
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#truncate
+calls=11584 67
+67 18805
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#%
+calls=11584 67
+67 21631
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#to_f
+calls=11584 67
+67 4000
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#to_i
+calls=11584 67
+67 4053
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment_repository.rb
+cfn=EnrollmentRepository#truncate
+calls=11584 67
+67 19060
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#%
+calls=11584 67
+67 21063
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=String#to_f
+calls=11584 67
+67 4291
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Enumerable#map
+0 3868
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#each
+calls=1 7
+7 98960
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#each
+calls=1 13
+13 98950
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#each
+calls=1448 66
+66 66807
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Hash#each
+calls=1448 66
+66 66986
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/load_data.rb
+fn=LoadData#load_data
+6 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Enumerable#map
+calls=1 9
+9 98963
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#to_h
+calls=1 9
+9 3
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district_repository.rb
+fn=DistrictRepository#load_data
+10 9
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Class#new
+calls=2 12
+12 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/load_data.rb
+cfn=LoadData#load_data
+calls=1 11
+11 98968
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=BasicObject#initialize
+0 1
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+fn=Class#new
+0 7361
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=BasicObject#initialize
+calls=1 6
+6 1
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+cfn=HeadcountAnalyst#initialize
+calls=1 13
+13 2
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=BasicObject#initialize
+calls=2 12
+12 0
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV#initialize
+calls=2 1273
+1273 626
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Regexp#initialize
+calls=2 2282
+2282 18
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Regexp#initialize
+calls=8 2282
+2282 31
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#initialize
+calls=2 2114
+2114 3
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#initialize
+calls=2 2114
+2114 0
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#initialize
+calls=2898 1803
+1803 688
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Array#initialize
+calls=2 1803
+1803 3
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV::Row#initialize
+calls=2 2250
+2250 17
+cfl=/Users/christinegamble/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/csv.rb
+cfn=CSV::Row#initialize
+calls=2894 2250
+2250 12074
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment.rb
+cfn=Enrollment#initialize
+calls=724 58
+58 707
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district.rb
+cfn=District#initialize
+calls=724 35
+35 242
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/enrollment.rb
+cfn=Enrollment#initialize
+calls=724 58
+58 720
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district.rb
+cfn=District#initialize
+calls=724 35
+35 235
+
+fl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_prof.rb
+fn=Global#[No method]
+6 31
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/test/ruby_runtime
+cfn=Class#new
+calls=2 13
+13 11
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/district_repository.rb
+cfn=DistrictRepository#load_data
+calls=1 7
+7 98980
+cfl=/Users/christinegamble/turing/1module/headcount/headcount/lib/headcount_analyst.rb
+cfn=HeadcountAnalyst#kindergarten_participation_correlates_with_high_school_graduation
+calls=1 14
+14 1753381
+

@@ -8,12 +8,13 @@ require_relative "../lib/district"
 class DistrictRepositoryTest < Minitest::Test
 
   def test_find_by_name_finds_the_district_from_the_data_loaded
-    skip
+    # skip
     dr = DistrictRepository.new
     dr.load_data({
-      :enrollment => {
-        :kindergarten => "./data/Kindergartners in full-day program.csv"
-                  }
+    :enrollment => {
+              :kindergarten => "./data/Kindergartners in full-day program.csv",
+    :high_school_graduation => "./data/High school graduation rates.csv"
+                      }
                 })
 
     district = dr.find_by_name("ACADEMY 20").name
@@ -23,12 +24,13 @@ class DistrictRepositoryTest < Minitest::Test
   end
 
   def test_find_by_name_finds_nil_if_name_is_not_a_district
-    skip
+    # skip
     dr = DistrictRepository.new
     dr.load_data({
-      :enrollment => {
-        :kindergarten => "./data/Kindergartners in full-day program.csv"
-                    }
+    :enrollment => {
+              :kindergarten => "./data/Kindergartners in full-day program.csv",
+    :high_school_graduation => "./data/High school graduation rates.csv"
+                      }
                 })
 
     district = dr.find_by_name("cant find me")
@@ -38,37 +40,41 @@ class DistrictRepositoryTest < Minitest::Test
 
 
   def test_find_all_matching_returns_instances_of_matching_names
-    skip
+    # skip
     dr = DistrictRepository.new
     dr.load_data({
-      :enrollment => {
-        :kindergarten => "./data/Kindergartners in full-day program.csv"
-                    }
+    :enrollment => {
+              :kindergarten => "./data/Kindergartners in full-day program.csv",
+    :high_school_graduation => "./data/High school graduation rates.csv"
+                      }
                 })
 
     assert_equal 1, dr.find_all_matching("Academy").count
   end
 
   def test_find_all_matching_returns_empty_array_if_no_name_fragment_is_matched
-    skip
+    # skip
     dr = DistrictRepository.new
     dr.load_data({
-      :enrollment => {
-        :kindergarten => "./data/Kindergartners in full-day program.csv"
-      }
-      })
+    :enrollment => {
+              :kindergarten => "./data/Kindergartners in full-day program.csv",
+    :high_school_graduation => "./data/High school graduation rates.csv"
+                      }
+                })
 
       assert_equal [], dr.find_all_matching("cant find me")
   end
 
   def test_district_repository_creates_enrollment_instances_on_district_instance
-    skip
+    # skip
     dr = DistrictRepository.new
     dr.load_data({
-      :enrollment => {
-        :kindergarten => "./data/Kindergartners in full-day program.csv"
-                    }
+    :enrollment => {
+              :kindergarten => "./data/Kindergartners in full-day program.csv",
+    :high_school_graduation => "./data/High school graduation rates.csv"
+                      }
                 })
+
     district = dr.find_by_name("ACADEMY 20")
     result = district.enrollment.kindergarten_participation_in_year(2010)
 
