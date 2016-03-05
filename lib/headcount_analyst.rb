@@ -53,14 +53,6 @@ class HeadcountAnalyst
     average_of_districts_graduation(compare)).round(3)
   end
 
-  # def average_of_states_participation
-  #   @state_participation_average ||= average_of_districts_participation('COLORADO')
-  # end
-  #
-  # def average_of_states_graduation
-  #   @state_graduation_average ||= average_of_districts_graduation('COLORADO')
-  # end
-
   def hs_graduation_rate_variation_against_state(district)
     state_graduation_average ||= average_of_districts_graduation('COLORADO')
     (average_of_districts_graduation(district) /
@@ -80,7 +72,20 @@ class HeadcountAnalyst
 
   def kindergarten_participation_correlates_with_high_school_graduation(for_district)
     district = for_district[:for]
-    if district == "STATEWIDE"
+    districts = for_district[:across]
+    if districts
+        false_array = Array.new
+        true_array = Array.new
+        districts.map do |district|
+        result = find_if_variation_is_true_or_false(district)
+          if result == true
+            true_array.push(result)
+          else
+            false_array.push(result)
+          end
+        end
+        correlation_above_seventy_percent?(true_array, false_array)
+    elsif district == "STATEWIDE"
       false_array = Array.new
       true_array = Array.new
       @district_repo.district_names.map do |district|

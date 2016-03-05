@@ -132,6 +132,24 @@ class HeadcountAnalystTest < Minitest::Test
     assert_equal output, evaluate
   end
 
+  def test_that_kindergarten_participation_against_high_school_graduation_works_across_multiple_districts
+    dr = DistrictRepository.new
+    dr.load_data({
+      :enrollment => {
+            :kindergarten => "./data/Kindergartners in full-day program.csv",
+  :high_school_graduation => "./data/High school graduation rates.csv"
+                    }
+              })
+    ha = HeadcountAnalyst.new(dr)
+    districts = { across: ['ACADEMY 20', 'ADAMS COUNTY 14', 'ADAMS-ARAPAHOE 28J', 'AGATE 300' ]}
+
+    evaluate = ha.kindergarten_participation_correlates_with_high_school_graduation(districts)
+
+    output = false
+
+    assert_equal output, evaluate
+  end
+
 
 
 
