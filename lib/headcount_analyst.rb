@@ -41,8 +41,6 @@ class HeadcountAnalyst
     @district_repo.find_by_name(district).enrollment.high_school_graduation
   end
 
-  # def state_average_of_graduation(state)
-
   def average_of_districts_graduation(district)
     districts_graduation(district).values.reduce(0) do |sum, num|
       sum += num.to_f
@@ -55,9 +53,29 @@ class HeadcountAnalyst
     average_of_districts_graduation(compare)).round(3)
   end
 
+  # def average_of_states_participation
+  #   @state_participation_average ||= average_of_districts_participation('COLORADO')
+  # end
+  #
+  # def average_of_states_graduation
+  #   @state_graduation_average ||= average_of_districts_graduation('COLORADO')
+  # end
+
+  def hs_graduation_rate_variation_against_state(district)
+    state_graduation_average ||= average_of_districts_graduation('COLORADO')
+    (average_of_districts_graduation(district) /
+    state_graduation_average).round(3)
+  end
+
+  def kindergarten_participation_rate_variation_against_state(district)
+    state_participation_average ||= average_of_districts_participation('COLORADO')
+    (average_of_districts_participation(district) /
+    state_participation_average).round(3)
+  end
+
   def kindergarten_participation_against_high_school_graduation(district)
-    (kindergarten_participation_rate_variation(district, against: 'COLORADO') /
-    hs_graduation_rate_variation(district, against: 'COLORADO')).round(3)
+    (kindergarten_participation_rate_variation_against_state(district) /
+    hs_graduation_rate_variation_against_state(district)).round(3)
   end
 
   def kindergarten_participation_correlates_with_high_school_graduation(for_district)
@@ -79,15 +97,13 @@ class HeadcountAnalyst
     end
   end
 
-  def correlation_above_seventy_percent?(true_array, false_array)
-    total_count = true_array.count + false_array.count
-    true_array.count > 0.7*(total_count) ? true : false
-  end
-
   def find_if_variation_is_true_or_false(district)
     variation = kindergarten_participation_against_high_school_graduation(district)
     variation > 0.6 && variation < 1.5 ? true : false
   end
 
-
+  def correlation_above_seventy_percent?(true_array, false_array)
+    total_count = true_array.count + false_array.count
+    true_array.count > 0.7*(total_count) ? true : false
+  end
 end

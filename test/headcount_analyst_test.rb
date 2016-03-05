@@ -76,7 +76,7 @@ class HeadcountAnalystTest < Minitest::Test
                2013=>0.694,
                2014=>0.661 }
 
-               
+
 
     assert_equal output, evaluate
   end
@@ -127,7 +127,7 @@ class HeadcountAnalystTest < Minitest::Test
     ha = HeadcountAnalyst.new(dr)
     evaluate = ha.kindergarten_participation_correlates_with_high_school_graduation(for: "STATEWIDE")
 
-    output = true
+    output = false
 
     assert_equal output, evaluate
   end
