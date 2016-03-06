@@ -70,13 +70,12 @@ class StatewideTestRepository
   def statewide_test_instances
     proficiency_data_3g ||= create_hash_of_math_reading_writing_per_year_3g
     proficiency_data_8g ||= create_hash_of_math_reading_writing_per_year_8g
-    proficiency_by_race ||= create_hash_with_all_subjects
-    require "pry"; binding.pry
+    proficiency_by_race_or_ethnicity ||= create_hash_with_all_subjects
     district_groups_3g.keys.map do |district|
-      StatewideTest.new( { name: district,
-            proficiency_by_year_3g: proficiency_data_3g[district],
-            proficiency_by_year_8g: proficiency_data_8g[district],
-               proficiency_by_race: proficiency_by_race[district]
+      StatewideTest.new( {      name: district,
+              proficiency_by_year_3g: proficiency_data_3g[district],
+              proficiency_by_year_8g: proficiency_data_8g[district],
+    proficiency_by_race_or_ethnicity: proficiency_by_race_or_ethnicity[district]
                       } )
     end
   end
@@ -107,7 +106,7 @@ class StatewideTestRepository
 
   def hash_out_scores(data)
     data.map do |data|
-      [data[:score], ('%.3f' % truncate(data[:data])).to_f]
+      [data[:score].downcase.to_sym, ('%.3f' % truncate(data[:data])).to_f]
     end.to_h
   end
 
@@ -135,7 +134,9 @@ class StatewideTestRepository
 
   def get_proficiency_data(data, subject)
     group_by_race(data).map do |race, data|
-      [ race, hash_out_by_years(data, subject) ]
+      standardized_race = race.gsub(" ","_").downcase.to_sym
+      standardized_race = :pacific_islander if race.include?("aiian")
+      [ standardized_race, hash_out_by_years(data, subject) ]
     end.to_h
   end
 
