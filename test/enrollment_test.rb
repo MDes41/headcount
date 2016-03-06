@@ -5,7 +5,7 @@ require_relative "../lib/enrollment"
 
 class EnrollmentTest < MiniTest::Test
 
-  def test_takes_some_data
+  def test_kindergarten_participation_in_year_returns_data_after_it_takes_in_some_data
     e = Enrollment.new({    :name => "ACADEMY 20",
       :kindergarten_participation => {"2010" => "0.391", "2011" => "0.353", "2012" => "0.267"}})
 
