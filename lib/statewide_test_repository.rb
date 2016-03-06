@@ -8,7 +8,7 @@ class StatewideTestRepository
 
   def load_data(hash_of_file_paths)
     @repo ||= LoadData.new.load_data(hash_of_file_paths)
-    statewide_test_instances if third_grade_proficiency
+    statewide_test_instances
   end
 
   def find_by_name(name)
@@ -117,23 +117,49 @@ class StatewideTestRepository
   #create_hash_for_race_groups
 
   def create_hash_with_all_subjects
-    @subject_proficiencies = {}
     math = district_groups_by_race_for_math
     reading = district_groups_by_race_for_reading
     writing = district_groups_by_race_for_writing
-    create_hash_of_for_race_groups(math: math)
-    create_hash_of_for_race_groups(reading: reading)
-    create_hash_of_for_race_groups(writing: writing)
+    main = create_hash_for_race_groups(main: math)
+    math_hash ||= create_hash_for_race_groups(math: math)
+    reading_hash ||= create_hash_for_race_groups(reading: reading)
+    math_and_reading_hash = merge_proficiency_data(math_hash, reading_hash)
+    writing_hash ||= create_hash_for_race_groups(writing: writing)
+    all_subjects = merge_proficiency_data(math_and_reading_hash, writing_hash)
+    merge_proficiency_data(all_subjects, all_subjects, 1)
   end
 
-  def create_hash_of_for_race_groups(subject)
+
+
+  def merge_proficiency_data(subject_one, subject_two, zeros = nil)
+    subject_one.merge(subject_two) do |key, oldval, newval|
+      newval.merge(oldval) do |key, oldval, newval|
+        newval.merge(oldval) do |key, oldval, newval|
+          newval.merge(oldval) do |key, oldval, newval|
+            if zeros == 1
+              if oldval == 0.0
+                newval = "N/A"
+              else
+                newval
+              end
+            else
+              newval + oldval
+            end
+          end
+        end
+      end
+    end
+  end
+
+  def create_hash_for_race_groups(subject)
     subject.values.first.map do |district, data|
       [district, get_proficiency_data(data, subject.keys.first)]
     end.to_h
   end
 
+
   def get_proficiency_data(data, subject)
-    group_by_race(data).map do |race, data|
+    x = group_by_race(data).map do |race, data|
       standardized_race = race.gsub(" ","_").downcase.to_sym
       standardized_race = :pacific_islander if race.include?("aiian")
       [ standardized_race, hash_out_by_years(data, subject) ]
@@ -148,9 +174,14 @@ class StatewideTestRepository
 
   def hash_out_by_years(data, subject)
     group_by_years(data).map do |year, data|
-      @subject_proficiencies[subject] = ('%.3f' % truncate(data.first[:data])).to_f
-      [year , @subject_proficiencies]
+      [ year.to_i ,  subject_hash(subject, data)]
     end.to_h
+  end
+
+  def subject_hash(subject, data)
+    proficiencies = { math: 0, reading: 0, writing: 0 }
+    proficiencies[subject] = ('%.3f' % truncate(data.first[:data])).to_f
+    proficiencies
   end
 
 
