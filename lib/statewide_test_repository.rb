@@ -100,13 +100,21 @@ class StatewideTestRepository
 
   def get_score_data(data)
     group_by_years(data).map do |year, data|
-      [year, hash_out_scores(data)]
+      [year.to_i, hash_out_scores(data)]
     end.to_h
+  end
+
+  def check_if_entry_valid?(data)
+    data[:data].to_f
   end
 
   def hash_out_scores(data)
     data.map do |data|
-      [data[:score].downcase.to_sym, ('%.3f' % truncate(data[:data])).to_f]
+      if data[:data].to_f == 0.0
+        [data[:score].downcase.to_sym, "N/A"]
+      else
+        [data[:score].downcase.to_sym, ('%.3f' % truncate(data[:data])).to_f]
+      end
     end.to_h
   end
 
