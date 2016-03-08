@@ -73,9 +73,9 @@ class HeadcountAnalyst
   def kindergarten_participation_correlates_with_high_school_graduation(for_district)
     district = for_district[:for]
     districts = for_district[:across]
+    false_array = Array.new
+    true_array = Array.new
     if districts
-        false_array = Array.new
-        true_array = Array.new
         districts.map do |district|
         result = find_if_variation_is_true_or_false(district)
           if result == true
@@ -86,8 +86,6 @@ class HeadcountAnalyst
         end
         correlation_above_seventy_percent?(true_array, false_array)
     elsif district == "STATEWIDE"
-      false_array = Array.new
-      true_array = Array.new
       @district_repo.district_names.map do |district|
       result = find_if_variation_is_true_or_false(district)
         if result == true
