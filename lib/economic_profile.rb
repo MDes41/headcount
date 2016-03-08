@@ -5,13 +5,20 @@ class EconomicProfile
   def initialize(hash_of_data)
     @name = hash_of_data[:name]
     @median_household_income = hash_of_data[:median_household_income]
+    @children_in_poverty = hash_of_data[:children_in_poverty]
+    @free_or_reduced_price_lunch = hash_of_data[:free_or_reduced_price_lunch]
+    @title_I = hash_of_data[:title_I]
   end
 
   def median_household_income_in_year(year)
-    incomes = incomes_for_year(year)
-    incomes.reduce(0) do |sum, income|
-      sum += income
-    end / incomes.count
+    if incomes_for_year(year) == []
+      raise ArgumentError.new("UnknownDataError")
+    else
+      incomes = incomes_for_year(year)
+      incomes.reduce(0) do |sum, income|
+        sum += income
+      end / incomes.count
+    end
   end
 
   def median_household_incomes_with_keys_as_range
@@ -28,12 +35,28 @@ class EconomicProfile
     end.compact
   end
 
+  def children_in_poverty_in_year(year)
+    result = @children_in_poverty[year]
+    result == nil ? "UnknownDataError" : truncate(result)
+  end
 
-    #first sort through the keys and find output if the year is in range of the key
-      #separate the keys into a range array
-      #see if year is included in the array
-      #return that hash key into another array
-      #average out the keys that are returned
+  def truncate(value)
+    result = ((value.to_f * 1000).floor / 1000.0 )
+    result == 100.0 ? 100 : result
+  end
 
+  def free_or_reduced_price_lunch_percentage_in_year(year)
+    result = @free_or_reduced_price_lunch[year][:percentage]
+    result == nil ? "UnknownDataError" : truncate(result)
+  end
 
+  def free_or_reduced_price_lunch_number_in_year(year)
+    result = @free_or_reduced_price_lunch[year][:total]
+    result == nil ? "UnknownDataError" : truncate(result)
+  end
+
+  def title_I_in_year(year)
+    result = @title_I[year]
+    result == nil ? "UnknownDataError" : truncate(result)
+  end
 end

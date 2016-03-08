@@ -18,20 +18,78 @@ class EconomicProfileRepository
     @repo[:economic_profile][:median_household_income]
   end
 
+  def children_in_poverty
+    @repo[:economic_profile][:children_in_poverty]
+  end
+
+  def free_or_reduced_price_lunch
+    @repo[:economic_profile][:free_or_reduced_price_lunch]
+  end
+
+  def title_I
+    @repo[:economic_profile][:title_I]
+  end
+
   def district_groups
-    median_household_income.group_by do |repo_row|
+    @repo[:economic_profile][:median_household_income].group_by do |repo_row|
       repo_row[:location]
     end
   end
 
   def economic_profile_instances
+    median_income_hash ||= hash_repo_for_median_income(median_household_income)
+    title_I_hash ||= hash_percent_repo(title_I)
+    children_in_poverty_hash ||= hash_percent_repo(children_in_poverty)
     district_groups.keys.map do |district|
-      EconomicProfile.new(name: district)
+      EconomicProfile.new( name: district,
+        median_household_income: median_income_hash[district],
+            children_in_poverty: children_in_poverty_hash[district],
+                        title_I: title_I_hash[district]
+                          )
     end
   end
 
-  
+  def hash_repo_for_median_income(repo)
+    repo_by_location = group_by_location(repo)
+    repo_by_location.map do |district, data_for_district|
+      [ district, match_timeframe_to_data_range(data_for_district) ]
+    end.to_h
+  end
+
+  def group_by_location(repo)
+    repo.group_by do |repo_row|
+      repo_row[:location]
+    end
+  end
+
+  def match_timeframe_to_data_range(data_for_district)
+    data_for_district.map do |district_data|
+      year_range = string_range_into_int(district_data[:timeframe])
+      [ year_range, district_data[:data].to_i ]
+    end.to_h
+  end
+
+  def hash_percent_repo(repo)
+    repo_by_location = group_by_location(repo)
+    repo_by_location.map do |district, data_for_district|
+      [ district,  match_timeframe_to_percent(data_for_district)]
+    end.to_h
+  end
+
+  def match_timeframe_to_percent(data_for_district)
+    data_for_district.map do |district_data|
+      [ district_data[:timeframe].to_i, truncate(district_data[:data].to_f) ]
+    end.to_h
+  end
+
+  def truncate(value)
+    result = ((value.to_f * 1000).floor / 1000.0 )
+    result == 100.0 ? 100 : result
+  end
 
 
+  def string_range_into_int(string_range)
+    string_range.split("-").map(&:to_i)
+  end
 
 end
