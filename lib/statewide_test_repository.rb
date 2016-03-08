@@ -167,7 +167,7 @@ class StatewideTestRepository
 
 
   def get_proficiency_data(data, subject)
-    x = group_by_race(data).map do |race, data|
+    group_by_race(data).map do |race, data|
       standardized_race = race.gsub(" ","_").downcase.to_sym
       standardized_race = :pacific_islander if race.include?("aiian")
       [ standardized_race, hash_out_by_years(data, subject) ]

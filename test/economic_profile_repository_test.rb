@@ -161,7 +161,7 @@ class EconomicProfileRepositoryTest < Minitest::Test
   end
 
   def test_children_in_poverty_and_title_I_data_is_attached_to_economic_profile_instance
-    # skip
+    skip
     epr = EconomicProfileRepository.new
     epr.load_data({
           :economic_profile => {
@@ -176,5 +176,21 @@ class EconomicProfileRepositoryTest < Minitest::Test
     assert_equal 0.033, ep.children_in_poverty_in_year(2002)
     assert_equal 0.011, ep.title_I_in_year(2011)
   end
+
+  def test_hash_repo_for_free_or_reduced_price_lunch_creates_hash_from_loaded_data
+    epr = EconomicProfileRepository.new
+    epr.load_data({
+          :economic_profile => {
+          :median_household_income => "./data/Median household income.csv",
+              :children_in_poverty => "./data/School-aged children in poverty.csv",
+      :free_or_reduced_price_lunch => "./data/Students qualifying for free or reduced price lunch.csv",
+                          :title_I => "./data/Title I students.csv"
+                              } })
+    repo = epr.free_or_reduced_price_lunch
+    epr.hash_repo_for_free_or_reduced_price_lunch(repo)
+
+  end
+
+  # def test_adjust_string_data_converts_
 
 end

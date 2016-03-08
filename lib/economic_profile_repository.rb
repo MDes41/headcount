@@ -69,10 +69,14 @@ class EconomicProfileRepository
     end.to_h
   end
 
+  def string_range_into_int(string_range)
+    string_range.split("-").map(&:to_i)
+  end
+
   def hash_percent_repo(repo)
     repo_by_location = group_by_location(repo)
     repo_by_location.map do |district, data_for_district|
-      [ district,  match_timeframe_to_percent(data_for_district)]
+      [ district,  match_timeframe_to_percent(data_for_district) ]
     end.to_h
   end
 
@@ -87,9 +91,53 @@ class EconomicProfileRepository
     result == 100.0 ? 100 : result
   end
 
-
-  def string_range_into_int(string_range)
-    string_range.split("-").map(&:to_i)
+  def hash_repo_for_free_or_reduced_price_lunch(repo)
+    district_to_poverty_level = hash_district_to_povety_level(repo)
   end
+
+  def take_required_data(data_for_district)
+    year = data_for_district[:timeframe].to_i
+    data_format = data_for_district[:dataformat]
+    data = data_for_district[:data]
+    if @dates.include?(year)
+      @dates -= [year]
+      @data_holder << adjust_string_data(data_format , data)
+      nil
+    else
+      data = adjust_string_data(data_format, data)
+      data2 = @data_holder.pop
+      { year => { data[0] => data[1] , data2[0] => data2[1] } }
+    end
+  end
+
+  def adjust_string_data(data_format, data)
+    if data_format == "Percent"
+      [ data_format, truncate(data.to_f) ]
+    else
+      [ data_format, data.to_i ]
+    end
+  end
+
+  def group_by_poverty_level(data_for_district)
+    @dates = (2000..2014).to_a
+    @data_holder = []
+    data_for_district.map do |data_for_district|
+      if data_for_district[:poverty_level]=="Eligible for Free or Reduced Lunch"
+        take_required_data(data_for_district)
+      else
+        nil
+      end
+    end.compact
+  end
+
+  def hash_district_to_povety_level(repo)
+    repo_by_location = group_by_location(repo)
+    repo_by_location.map do |district, data_for_district|
+      [ district,  group_by_poverty_level(data_for_district)]
+    end.to_h
+  end
+
+
+
 
 end
