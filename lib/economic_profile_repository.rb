@@ -4,6 +4,8 @@ require_relative 'economic_profile'
 
 class EconomicProfileRepository
 
+  attr_accessor :repo
+
   def load_data(hash_of_file_paths)
     @repo ||= LoadData.new.load_data(hash_of_file_paths)
   end
@@ -27,7 +29,7 @@ class EconomicProfileRepository
   end
 
   def title_I
-    @repo[:economic_profile][:title_I]
+    @repo[:economic_profile][:title_i]
   end
 
   def district_groups

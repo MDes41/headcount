@@ -84,6 +84,8 @@ class DistrictRepositoryTest < Minitest::Test
 
   def test_distric_repository_creates_statewide_test_instances_on_district_object_when_data_is_loaded
     skip
+    dr = DistrictRepository.new
+
     dr.load_data({
       :enrollment => {
         :kindergarten => "./data/Kindergartners in full-day program.csv",
@@ -97,7 +99,33 @@ class DistrictRepositoryTest < Minitest::Test
         :writing => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Writing.csv"
       }
     })
+
+    district = dr.find_by_name("ACADEMY 20")
+    result = district.statewide_test.proficient_for_subject_by_grade_in_year(:math, 8, 2014)
+
+    assert_equal 0.684, result
   end
 
+  def test_distric_repository_creates_statewide_test_instances_on_district_object_when_data_is_loaded
+    dr = DistrictRepository.new
+
+    dr.load_data({
+      :enrollment => {
+        :kindergarten => "./data/Kindergartners in full-day program.csv",
+        :high_school_graduation => "./data/High school graduation rates.csv",
+      },
+      :economic_profile => {
+        :median_household_income => "./data/Median household income.csv",
+        :children_in_poverty => "./data/School-aged children in poverty.csv",
+        :free_or_reduced_price_lunch => "./data/Students qualifying for free or reduced price lunch.csv",
+        :title_i => "./data/Title I students.csv"
+      }
+    })
+
+    district = dr.find_by_name("ACADEMY 20")
+    result = district.economic_profile.median_household_income_in_year(2005)
+
+    assert_equal 85060, result
+  end
 
 end

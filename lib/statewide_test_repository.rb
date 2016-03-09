@@ -6,6 +6,8 @@ require_relative './statewide_test_repository'
 
 class StatewideTestRepository
 
+  attr_accessor :repo
+
   def load_data(hash_of_file_paths)
     @repo ||= LoadData.new.load_data(hash_of_file_paths)
     statewide_test_instances
