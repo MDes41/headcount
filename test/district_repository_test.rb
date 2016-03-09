@@ -3,6 +3,7 @@ require "minitest/pride"
 require 'pry'
 require_relative "../lib/district_repository"
 require_relative "../lib/district"
+require_relative 'test_helper'
 
 
 class DistrictRepositoryTest < Minitest::Test

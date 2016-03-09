@@ -3,6 +3,8 @@ require "minitest/pride"
 require 'pry'
 require_relative "../lib/statewide_test_repository"
 require_relative "../lib/statewide_test"
+require 'simplecov'
+SimpleCov.start
 
 
 class StatewideTestRespositoryTest < Minitest::Test

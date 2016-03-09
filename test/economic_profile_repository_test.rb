@@ -1,6 +1,7 @@
 require "minitest/autorun"
 require "minitest/pride"
 require_relative '../lib/economic_profile_repository'
+require_relative 'test_helper'
 
 class EconomicProfileRepositoryTest < Minitest::Test
   def test_find_by_name_returns_nil_if_name_is_not_a_district
@@ -10,7 +11,7 @@ class EconomicProfileRepositoryTest < Minitest::Test
           :median_household_income => "./data/Median household income.csv",
               :children_in_poverty => "./data/School-aged children in poverty.csv",
       :free_or_reduced_price_lunch => "./data/Students qualifying for free or reduced price lunch.csv",
-                          :title_I => "./data/Title I students.csv"
+                          :title_i => "./data/Title I students.csv"
                               } })
 
           ep = epr.find_by_name("cant_find")
@@ -93,7 +94,7 @@ class EconomicProfileRepositoryTest < Minitest::Test
           :median_household_income => "./data/Median household income.csv",
               :children_in_poverty => "./data/School-aged children in poverty.csv",
       :free_or_reduced_price_lunch => "./data/Students qualifying for free or reduced price lunch.csv",
-                          :title_I => "./data/Title I students.csv"
+                          :title_i => "./data/Title I students.csv"
                               } })
 
     ep = epr.find_by_name("ACADEMY 20")
@@ -141,13 +142,13 @@ class EconomicProfileRepositoryTest < Minitest::Test
           :median_household_income => "./data/Median household income.csv",
               :children_in_poverty => "./data/School-aged children in poverty.csv",
       :free_or_reduced_price_lunch => "./data/Students qualifying for free or reduced price lunch.csv",
-                          :title_I => "./data/Title I students.csv"
+                          :title_i => "./data/Title I students.csv"
                               } })
 
     ep = epr.find_by_name("ACADEMY 20")
 
     assert_equal 0.033, ep.children_in_poverty_in_year(2002)
-    assert_equal 0.011, ep.title_I_in_year(2011)
+    assert_equal 0.011, ep.title_i_in_year(2011)
   end
 
   def test_adjust_string_data_takes_in_data_format_and_data_and_truncates_percentages_and_adjusts_strings_to_integers
@@ -190,7 +191,7 @@ class EconomicProfileRepositoryTest < Minitest::Test
           :median_household_income => "./data/Median household income.csv",
               :children_in_poverty => "./data/School-aged children in poverty.csv",
       :free_or_reduced_price_lunch => "./data/Students qualifying for free or reduced price lunch.csv",
-                          :title_I => "./data/Title I students.csv"
+                          :title_i => "./data/Title I students.csv"
                               } })
     repo = epr.free_or_reduced_price_lunch
 
@@ -206,7 +207,7 @@ class EconomicProfileRepositoryTest < Minitest::Test
           :median_household_income => "./data/Median household income.csv",
               :children_in_poverty => "./data/School-aged children in poverty.csv",
       :free_or_reduced_price_lunch => "./data/Students qualifying for free or reduced price lunch.csv",
-                          :title_I => "./data/Title I students.csv"
+                          :title_i => "./data/Title I students.csv"
                               } })
 
     economic_profile = epr.find_by_name("ACADEMY 20")
@@ -216,7 +217,7 @@ class EconomicProfileRepositoryTest < Minitest::Test
     assert_equal 0.064, economic_profile.children_in_poverty_in_year(2012)
     assert_equal 0.127, economic_profile.free_or_reduced_price_lunch_percentage_in_year(2014)
     assert_equal 3132, economic_profile.free_or_reduced_price_lunch_number_in_year(2014)
-    assert_equal 0.027, economic_profile.title_I_in_year(2014)
+    assert_equal 0.027, economic_profile.title_i_in_year(2014)
   end
 
 

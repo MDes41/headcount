@@ -1,6 +1,7 @@
 require "minitest/autorun"
 require "minitest/pride"
 require_relative "../lib/enrollment_repository"
+require_relative 'test_helper'
 
 class EnrollmentRepositoryTest < Minitest::Test
 
@@ -123,7 +124,7 @@ class EnrollmentRepositoryTest < Minitest::Test
                 })
     enrollment = er.find_by_name("ACADEMY 20")
     output = 0.895
-          
+
     assert_equal output, enrollment.graduation_rate_in_year(2010)
   end
 

@@ -2,6 +2,7 @@ require "minitest/autorun"
 require "minitest/pride"
 require 'pry'
 require_relative "../lib/enrollment"
+require_relative 'test_helper'
 
 class EnrollmentTest < MiniTest::Test
 

@@ -7,7 +7,7 @@ class EconomicProfile
     @median_household_income = hash_of_data[:median_household_income]
     @children_in_poverty = hash_of_data[:children_in_poverty]
     @free_or_reduced_price_lunch = hash_of_data[:free_or_reduced_price_lunch]
-    @title_I = hash_of_data[:title_I]
+    @title_i = hash_of_data[:title_i]
   end
 
   def median_household_income_in_year(year)
@@ -71,8 +71,8 @@ class EconomicProfile
     result == nil ? "UnknownDataError" : truncate(result)
   end
 
-  def title_I_in_year(year)
-    result = @title_I[year]
+  def title_i_in_year(year)
+    result = @title_i[year]
     result == nil ? "UnknownDataError" : truncate(result)
   end
 end

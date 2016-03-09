@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require_relative '../lib/economic_profile'
+require_relative './test_helper'
 
 class EconomicProfileTest < Minitest::Test
   def test_that_economic_profile_class_creates_a_district_with_a_name
@@ -123,12 +124,10 @@ class EconomicProfileTest < Minitest::Test
   end
 
   def test_title_i_in_year_returns_unknown_data_error_if_year_is_invalid
-    data = {:title_I => {2015 => 0.543}}
+    data = {:title_i => {2015 => 0.543}}
 
     economic_profile = EconomicProfile.new(data)
 
-    assert_equal 0.543, economic_profile.title_I_in_year(2015)
+    assert_equal 0.543, economic_profile.title_i_in_year(2015)
   end
-
-
 end

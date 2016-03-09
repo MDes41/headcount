@@ -47,7 +47,7 @@ class EconomicProfileRepository
       EconomicProfile.new( name: district,
         median_household_income: median_income_hash[district],
             children_in_poverty: children_in_poverty_hash[district],
-                        title_I: title_I_hash[district],
+                        title_i: title_I_hash[district],
     free_or_reduced_price_lunch: free_or_reduced_price_lunch_hash[district]
                           )
     end

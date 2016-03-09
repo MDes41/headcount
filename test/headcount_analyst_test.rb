@@ -3,6 +3,7 @@ require "minitest/pride"
 require_relative '../lib/headcount_analyst'
 require_relative '../lib/district_repository'
 require 'pry'
+require_relative 'test_helper'
 
 
 class HeadcountAnalystTest < Minitest::Test
