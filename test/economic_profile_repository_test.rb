@@ -1,7 +1,7 @@
+require_relative 'test_helper'
 require "minitest/autorun"
 require "minitest/pride"
 require_relative '../lib/economic_profile_repository'
-require_relative 'test_helper'
 
 class EconomicProfileRepositoryTest < Minitest::Test
   def test_find_by_name_returns_nil_if_name_is_not_a_district

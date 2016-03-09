@@ -106,10 +106,6 @@ class StatewideTestRepository
     end.to_h
   end
 
-  def check_if_entry_valid?(data)
-    data[:data].to_f
-  end
-
   def hash_out_scores(data)
     data.map do |data|
       if data[:data].to_f == 0.0

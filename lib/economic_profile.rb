@@ -12,7 +12,7 @@ class EconomicProfile
 
   def median_household_income_in_year(year)
     if incomes_for_year(year) == []
-      raise ArgumentError.new("UnknownDataError")
+      raise "UnknownDataError"
     else
       incomes = incomes_for_year(year)
       incomes.reduce(0) do |sum, income|
@@ -53,7 +53,11 @@ class EconomicProfile
 
   def children_in_poverty_in_year(year)
     result = @children_in_poverty[year]
-    result == nil ? "UnknownDataError" : truncate(result)
+    if result == nil
+      raise "UnknownDataError"
+      else
+        truncate(result)
+    end
   end
 
   def truncate(value)
@@ -63,16 +67,28 @@ class EconomicProfile
 
   def free_or_reduced_price_lunch_percentage_in_year(year)
     result = @free_or_reduced_price_lunch[year][:percentage]
-    result == nil ? "UnknownDataError" : truncate(result)
+    if result == []
+      raise "UnknownDataError"
+    else
+      truncate(result)
+    end
   end
 
   def free_or_reduced_price_lunch_number_in_year(year)
     result = @free_or_reduced_price_lunch[year][:total]
-    result == nil ? "UnknownDataError" : truncate(result)
+    if result == nil
+      raise "UnknownDataError"
+    else
+      truncate(result)
+    end
   end
 
   def title_i_in_year(year)
     result = @title_i[year]
-    result == nil ? "UnknownDataError" : truncate(result)
+    if result == nil
+    raise "UnknownDataError"
+    else
+      truncate(result)
+    end
   end
 end

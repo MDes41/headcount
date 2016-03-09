@@ -1,12 +1,13 @@
+require_relative 'test_helper'
 require "minitest/autorun"
 require "minitest/pride"
 require 'pry'
 require_relative "../lib/district_repository"
 require_relative "../lib/district"
-require_relative 'test_helper'
 
 
 class DistrictRepositoryTest < Minitest::Test
+
 
   def test_find_by_name_finds_the_district_from_the_data_loaded
     # skip
@@ -84,7 +85,7 @@ class DistrictRepositoryTest < Minitest::Test
   end
 
   def test_distric_repository_creates_statewide_test_instances_on_district_object_when_data_is_loaded
-    skip
+    # skip
     dr = DistrictRepository.new
 
     dr.load_data({
@@ -127,6 +128,27 @@ class DistrictRepositoryTest < Minitest::Test
     result = district.economic_profile.median_household_income_in_year(2005)
 
     assert_equal 85060, result
+  end
+
+  def test_that_districts_are_grouped_in_statewide_repo
+    dr = DistrictRepository.new
+
+    dr.load_data({
+      :enrollment => {
+        :kindergarten => "./data/Kindergartners in full-day program.csv",
+        :high_school_graduation => "./data/High school graduation rates.csv",
+      },
+      :statewide_testing => {
+        :third_grade => "./data/3rd grade students scoring proficient or above on the CSAP_TCAP.csv",
+        :eighth_grade => "./data/8th grade students scoring proficient or above on the CSAP_TCAP.csv",
+        :math => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Math.csv",
+        :reading => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Reading.csv",
+        :writing => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Writing.csv"
+      }
+    })
+    result = dr.statewide_testing_by_district.keys.first
+
+    assert_equal "Colorado", result
   end
 
 end
