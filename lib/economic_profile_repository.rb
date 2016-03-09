@@ -40,11 +40,13 @@ class EconomicProfileRepository
     median_income_hash ||= hash_repo_for_median_income(median_household_income)
     title_I_hash ||= hash_percent_repo(title_I)
     children_in_poverty_hash ||= hash_percent_repo(children_in_poverty)
+    free_or_reduced_price_lunch_hash ||= hash_repo_for_free_or_reduced_price_lunch(free_or_reduced_price_lunch)
     district_groups.keys.map do |district|
       EconomicProfile.new( name: district,
         median_household_income: median_income_hash[district],
             children_in_poverty: children_in_poverty_hash[district],
-                        title_I: title_I_hash[district]
+                        title_I: title_I_hash[district],
+    free_or_reduced_price_lunch: free_or_reduced_price_lunch_hash[district]
                           )
     end
   end
@@ -92,10 +94,13 @@ class EconomicProfileRepository
   end
 
   def hash_repo_for_free_or_reduced_price_lunch(repo)
-    district_to_poverty_level = hash_district_to_povety_level(repo)
+    repo_by_location = group_by_location(repo)
+    repo_by_location.map do |district, data_for_district|
+      [ district,  group_by_poverty_level(data_for_district).first ]
+    end.to_h
   end
 
-  def take_required_data(data_for_district)
+  def select_only_required_data(data_for_district)
     year = data_for_district[:timeframe].to_i
     data_format = data_for_district[:dataformat]
     data = data_for_district[:data]
@@ -112,9 +117,9 @@ class EconomicProfileRepository
 
   def adjust_string_data(data_format, data)
     if data_format == "Percent"
-      [ data_format, truncate(data.to_f) ]
+      [ :percentage , truncate(data.to_f) ]
     else
-      [ data_format, data.to_i ]
+      [ :total , data.to_i ]
     end
   end
 
@@ -123,21 +128,16 @@ class EconomicProfileRepository
     @data_holder = []
     data_for_district.map do |data_for_district|
       if data_for_district[:poverty_level]=="Eligible for Free or Reduced Lunch"
-        take_required_data(data_for_district)
+        select_only_required_data(data_for_district)
       else
         nil
       end
     end.compact
   end
 
-  def hash_district_to_povety_level(repo)
-    repo_by_location = group_by_location(repo)
-    repo_by_location.map do |district, data_for_district|
-      [ district,  group_by_poverty_level(data_for_district)]
-    end.to_h
-  end
-
-
-
+  #maybe try to hash the entire repo then step down each line
+  #with pop or .first to get the element into and array then
+  #step down with if statements and grab the data and create a
+  #hash with selected data. may also to_a and see if the
 
 end

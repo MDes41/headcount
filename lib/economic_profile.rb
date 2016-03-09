@@ -29,6 +29,22 @@ class EconomicProfile
     range
   end
 
+  def first_and_last_year_in_given_data
+    all_years = @median_household_income.map do |year_range, income|
+      year_range
+    end.flatten
+    [ all_years.min, all_years.max ]
+  end
+
+
+  def median_household_income_average
+    all_years = first_and_last_year_in_given_data
+    years = (all_years.min..all_years.max).to_a
+    years.reduce(0) do |sum, year|
+      sum += median_household_income_in_year(year)
+    end / years.count
+  end
+
   def incomes_for_year(year)
     median_household_incomes_with_keys_as_range.map do |year_range, income|
       income if year_range.include?(year)
