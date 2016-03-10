@@ -120,8 +120,6 @@ class StatewideTestRepository
     ((value.to_f * 1000).floor / 1000.0 )
   end
 
-  #create_hash_for_race_groups
-
   def create_hash_with_all_subjects
     math = district_groups_by_race_for_math
     reading = district_groups_by_race_for_reading
@@ -134,8 +132,6 @@ class StatewideTestRepository
     all_subjects = merge_proficiency_data(math_and_reading_hash, writing_hash)
     merge_proficiency_data(all_subjects, all_subjects, 1)
   end
-
-
 
   def merge_proficiency_data(subject_one, subject_two, zeros = nil)
     subject_one.merge(subject_two) do |key, oldval, newval|
@@ -163,7 +159,6 @@ class StatewideTestRepository
     end.to_h
   end
 
-
   def get_proficiency_data(data, subject)
     group_by_race(data).map do |race, data|
       standardized_race = race.gsub(" ","_").downcase.to_sym
@@ -189,6 +184,5 @@ class StatewideTestRepository
     proficiencies[subject] = ('%.3f' % truncate(data.first[:data])).to_f
     proficiencies
   end
-
 
 end

@@ -1,4 +1,3 @@
-require 'pry'
 require_relative 'load_data'
 require_relative 'economic_profile'
 
@@ -136,10 +135,5 @@ class EconomicProfileRepository
       end
     end.compact
   end
-
-  #maybe try to hash the entire repo then step down each line
-  #with pop or .first to get the element into and array then
-  #step down with if statements and grab the data and create a
-  #hash with selected data. may also to_a and see if the
-
+  
 end

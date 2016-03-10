@@ -45,7 +45,8 @@ class StatewideTest
   def proficient_for_subject_by_race_in_year(subject,race, year)
     valid_categories = [:asian, :black, :pacific_islander,
           :hispanic, :native_american, :two_or_more, :white]
-    if [:math, :reading, :writing].include?(subject) && valid_categories.include?(race)
+    valid_subjects = [:math, :reading, :writing]
+    if valid_subjects.include?(subject) && valid_categories.include?(race)
       @proficiency_by_race_or_ethnicity_data[race][year][subject]
     else
       raise UnknownDataError

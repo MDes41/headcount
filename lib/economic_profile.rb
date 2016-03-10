@@ -23,8 +23,6 @@ class EconomicProfile
     end
   end
 
-
-
   def median_household_incomes_with_keys_as_range
     range = {}
     @median_household_income.map do |year_range, income|
@@ -39,7 +37,6 @@ class EconomicProfile
     end.flatten
     [ all_years.min, all_years.max ]
   end
-
 
   def median_household_income_average
     all_years = first_and_last_year_in_given_data
@@ -94,4 +91,5 @@ class EconomicProfile
       truncate(result)
     end
   end
+
 end
