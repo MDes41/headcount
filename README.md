@@ -5,7 +5,8 @@
 This project was a two week project completed at Turing School of Design and Sofware as a final project for Module 1.  It contains a colleton of data centered around schools in Colorado provided by the Annie E. Casey foundation.  
 
 Ultimately, a crude visualization of the structure might look like this:
-'''ruby
+
+```ruby
 - District: Gives access to all the data relating to a single, named school district
 |-- Enrollment: Gives access to enrollment data within that district, including:
 |  | -- Dropout rate information
@@ -25,10 +26,10 @@ Ultimately, a crude visualization of the structure might look like this:
 |  | -- Rates of school-aged children living below the poverty line
 |  | -- Rates of students qualifying for free or reduced price programs
 |  | -- Rates of students qualifying for Title I assistance
-'''
+```
 All data from the CSV's can be loaded from the commend line through the Data Repository.
 
-'''ruby
+```ruby
 dr = DistrictRepository.new
 dr.load_data({
   :enrollment => {
@@ -51,7 +52,7 @@ dr.load_data({
 })
 district = dr.find_by_name("ACADEMY 20")
 statewide_test = district.statewide_test
-
+```
 Original Assigment Markdown (https://github.com/turingschool/curriculum/blob/master/source/projects/headcount.markdown)
 
 
