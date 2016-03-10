@@ -1,8 +1,9 @@
 ## Headcount
 
 **Project completed by Matthew DesMarteau and Christine Gamble**
+Original Assigment Markdown (https://github.com/turingschool/curriculum/blob/master/source/projects/headcount.markdown)
 
-This project was a two week project completed at Turing School of Design and Sofware as a final project for Module 1.  It contains a colleton of data centered around schools in Colorado provided by the Annie E. Casey foundation.  
+This project was a two week project completed at Turing School of Design and Sofware as a final project for Module 1.  It contains a collection of data centered around schools in Colorado provided by the Annie E. Casey foundation.  
 
 Ultimately, a crude visualization of the structure might look like this:
 
@@ -51,9 +52,25 @@ dr.load_data({
   }
 })
 district = dr.find_by_name("ACADEMY 20")
+
+enrollments = district.enrollment
+economic_profile = district.economic_profile
+```
+The statewide testing information can be called through the district instances with 
+```ruby
 statewide_test = district.statewide_test
 ```
-Original Assigment Markdown (https://github.com/turingschool/curriculum/blob/master/source/projects/headcount.markdown)
+proficiency by grade can be called for grades `3` and grade `8`:
+```ruby
+statewide_test.proficient_by_grade(grade)
+```
+proficiency by race or ethnicity can be called with valid race categories
+```valid_categories = [:asian, :black, :pacific_islander,
+          :hispanic, :native_american, :two_or_more, :white]```
+```ruby 
+statewide.proficient_by_race_or_ethnicity(:asian)
+```
+
 
 
 
