@@ -68,8 +68,17 @@ proficiency by race or ethnicity can be called with valid race categories
 ```valid_categories = [:asian, :black, :pacific_islander,
           :hispanic, :native_american, :two_or_more, :white]```
 ```ruby 
-statewide.proficient_by_race_or_ethnicity(:asian)
+statewide_test.proficient_by_race_or_ethnicity(:asian)
 ```
+other methods in the statewide testing repositoring include:
+```ruby
+statewide_test.proficient_for_subject_by_grade_in_year(subject,grade,year)
+proficient_for_subject_by_race_in_year(subject,race, year)
+```
+with valid subjects of ```:math```, ```:reading```, and ```:writing```
+with valid grades of ```3``` and ```8```
+and valid years ```2000``` through ```2014```
+
 
 
 
