@@ -54,7 +54,7 @@ class StatewideTestRespositoryTest < Minitest::Test
                   })
     statewide_test = str.find_by_name("ACADEMY 20")
 
-    output = {2008=>{:math=>0.857, :reading=>0.866, :writing=>0.671},
+    output_3g = {2008=>{:math=>0.857, :reading=>0.866, :writing=>0.671},
               2009=>{:math=>0.824, :reading=>0.862, :writing=>0.706},
               2010=>{:math=>0.849, :reading=>0.864, :writing=>0.662},
               2011=>{:math=>0.819, :reading=>0.867, :writing=>0.678},
@@ -62,8 +62,16 @@ class StatewideTestRespositoryTest < Minitest::Test
               2013=>{:math=>0.855, :reading=>0.859, :writing=>0.668},
               2014=>{:math=>0.834, :reading=>0.831, :writing=>0.639}}
 
-    assert_equal output, statewide_test.proficient_by_grade(3)
+    output_8g ={2008=>{:math=>0.64, :reading=>0.843, :writing=>0.734},
+                2009=>{:math=>0.656, :reading=>0.825, :writing=>0.701},
+                2010=>{:math=>0.672, :reading=>0.863, :writing=>0.754},
+                2011=>{:reading=>0.832, :math=>0.653, :writing=>0.745},
+                2012=>{:math=>0.681, :writing=>0.738, :reading=>0.833},
+                2013=>{:math=>0.661, :reading=>0.852, :writing=>0.75},
+                2014=>{:math=>0.684, :reading=>0.827, :writing=>0.747}}
 
+    assert_equal output_3g, statewide_test.proficient_by_grade(3)
+    assert_equal output_8g, statewide_test.proficient_by_grade(8)
   end
 
   def test_proficient_by_race_or_ethnicity_returns_a_hash_grouped_by_racereferencing_percentages_by_subject

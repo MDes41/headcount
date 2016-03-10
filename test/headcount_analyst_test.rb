@@ -4,6 +4,7 @@ require "minitest/pride"
 require_relative '../lib/headcount_analyst'
 require_relative '../lib/district_repository'
 require_relative '../lib/statewide_test'
+require_relative '../lib/errors'
 require 'pry'
 
 
@@ -49,34 +50,6 @@ class HeadcountAnalystTest < Minitest::Test
     evaluate = ha.kindergarten_participation_rate_variation('ACADEMY 20', :against => 'YUMA SCHOOL DISTRICT 1')
 
     assert_equal 0.447, evaluate
-  end
-
-  def test_kindergarten_participation_rate_variation_trend_calculates_trending_participation_rates
-    dr = DistrictRepository.new
-    dr.load_data({
-      :enrollment => {
-            :kindergarten => "./data/Kindergartners in full-day program.csv",
-  :high_school_graduation => "./data/High school graduation rates.csv"
-                    }
-              })
-    ha = HeadcountAnalyst.new(dr)
-    evaluate = ha.kindergarten_participation_rate_variation_trend('ACADEMY 20', :against => 'COLORADO')
-
-    output = { 2007=>0.992,
-               2006=>1.051,
-               2005=>0.96,
-               2004=>1.258,
-               2008=>0.718,
-               2009=>0.652,
-               2010=>0.681,
-               2011=>0.728,
-               2012=>0.688,
-               2013=>0.694,
-               2014=>0.661 }
-
-
-
-    assert_equal output, evaluate
   end
 
   def test_kindergarten_participation_rate_variation_trend_calculates_trending_participation_rates
@@ -265,11 +238,12 @@ class HeadcountAnalystTest < Minitest::Test
     })
     ha = HeadcountAnalyst.new(dr)
 
-    result = ha.test_top_statewide_test_year_over_year_growth(grade: 9, subject: :math)
-    assert_equal "UnknownDataError", result
+    # result = ha.top_statewide_test_year_over_year_growth(subject: :math)
+    assert_raises(InsufficientInformationError) { ha.top_statewide_test_year_over_year_growth(subject: :math) }
+
   end
 
-  def test_top_statewide_test_year_over_year_growth_returns_insufficient_information_if_a_valid_argument_is_not_called
+  def test_top_statewide_test_year_over_year_growth_returns_valid_results_for_data_loaded_with_different_arguments
     dr = DistrictRepository.new
 
     dr.load_data({

@@ -87,7 +87,7 @@ class EconomicProfileRepositoryTest < Minitest::Test
     assert_equal output, epr.hash_repo_for_median_income(input)
   end
 
-  def test_find_by_name_returns_nil_if_name_is_not_a_district
+  def test_median_household_income_method_returns_the_correct_data_for_year_input
     epr = EconomicProfileRepository.new
     epr.load_data({
           :economic_profile => {
