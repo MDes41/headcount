@@ -59,26 +59,26 @@ dr.district_names
 ```
 ##Statewide Testing Information
 
-The statewide testing information can be called through the district instances with 
+The statewide testing information can be called through the district instances with:
 ```ruby
 statewide_test = district.statewide_test
 ```
-proficiency by grade can be called for grades `3` and grade `8`:
+Proficiency by grade can be called for grade `3` and grade `8`:
 ```ruby
 statewide_test.proficient_by_grade(grade)
 ```
-proficiency by race or ethnicity can be called with valid race categories
+Proficiency by race or ethnicity can be called with valid race categories:
 ```valid_categories = [:asian, :black, :pacific_islander,
           :hispanic, :native_american, :two_or_more, :white]```
 ```ruby 
 statewide_test.proficient_by_race_or_ethnicity(:asian)
 ```
-other methods in the statewide testing repositoring include:
+Other methods in the statewide testing repositoring include:
 ```ruby
 statewide_test.proficient_for_subject_by_grade_in_year(subject,grade,year)
 proficient_for_subject_by_race_in_year(subject,race, year)
 ```
-with valid subjects of ```:math```, ```:reading```, and ```:writing``` with valid grades of ```3``` and ```8``` and valid  years ```2000``` through ```2014```
+with valid subjects of ```:math```, ```:reading```, and ```:writing``` with valid grades of ```3``` and ```8``` and valid  years ```2000``` through ```2014```.
 
 ##Enrollment Repository
 
@@ -86,7 +86,7 @@ The enrollment repository can be accessed through the district repository with:
 ```ruby
 enrollments = district.enrollment
 ```
-The following methods are included in the enrollment repository
+The following methods are included in the enrollment repository:
 ```ruby
 enrollments.kindergarten_participation_by_year
 enrollments.kindergarten_participation_in_year(year)
@@ -110,9 +110,9 @@ title_i_in_year(year)
 
 ## Headcount Analyst
 
-Please check out the ```headcount_analyst.rb``` file for further analysis methods that analyze the data accrosse race and grade type.
+Please check out the ```headcount_analyst.rb``` file for further analysis methods that analyze the data across race and grade type.
 
-####contact one of the collaborators on the repo for further details. Thanks!
+**contact one of the collaborators on the repo for further details. Thanks!**
 
 
 
