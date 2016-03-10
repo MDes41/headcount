@@ -18,7 +18,7 @@ class StatewideTest
     elsif grade == 8
       @proficiency_by_year_8g
     else
-      raise ArgumentError.new("UnknownDataError")
+      raise UnknownDataError
     end
   end
 
@@ -28,7 +28,7 @@ class StatewideTest
     if valid_categories.include?(category)
       @proficiency_by_race_or_ethnicity_data[category]
     else
-      raise ArgumentError.new("UnknownDataError")
+      raise UnknownDataError
     end
   end
 
@@ -38,7 +38,7 @@ class StatewideTest
     elsif [:math, :reading, :writing].include?(subject) && grade == 8
       @proficiency_by_year_8g[year][subject.downcase.to_sym]
     elsif
-      raise ArgumentError.new("UnknownDataError")
+      raise UnknownDataError
     end
   end
 
@@ -48,7 +48,7 @@ class StatewideTest
     if [:math, :reading, :writing].include?(subject) && valid_categories.include?(race)
       @proficiency_by_race_or_ethnicity_data[race][year][subject]
     else
-      raise ArgumentError.new("UnknownDataError")
+      raise UnknownDataError
     end
   end
 

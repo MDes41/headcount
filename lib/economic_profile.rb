@@ -1,3 +1,5 @@
+require_relative 'errors'
+
 class EconomicProfile
 
   attr_reader :name
@@ -12,7 +14,7 @@ class EconomicProfile
 
   def median_household_income_in_year(year)
     if incomes_for_year(year) == []
-      raise "UnknownDataError"
+      raise UnknownDataError
     else
       incomes = incomes_for_year(year)
       incomes.reduce(0) do |sum, income|
@@ -20,6 +22,8 @@ class EconomicProfile
       end / incomes.count
     end
   end
+
+
 
   def median_household_incomes_with_keys_as_range
     range = {}
@@ -54,9 +58,9 @@ class EconomicProfile
   def children_in_poverty_in_year(year)
     result = @children_in_poverty[year]
     if result == nil
-      raise "UnknownDataError"
-      else
-        truncate(result)
+      raise UnknownDataError
+    else
+      truncate(result)
     end
   end
 
@@ -68,7 +72,7 @@ class EconomicProfile
   def free_or_reduced_price_lunch_percentage_in_year(year)
     result = @free_or_reduced_price_lunch[year][:percentage]
     if result == []
-      raise "UnknownDataError"
+      raise InsufficientInformationError
     else
       truncate(result)
     end
@@ -77,7 +81,7 @@ class EconomicProfile
   def free_or_reduced_price_lunch_number_in_year(year)
     result = @free_or_reduced_price_lunch[year][:total]
     if result == nil
-      raise "UnknownDataError"
+      raise InsufficientInformationError
     else
       truncate(result)
     end
@@ -86,7 +90,7 @@ class EconomicProfile
   def title_i_in_year(year)
     result = @title_i[year]
     if result == nil
-    raise "UnknownDataError"
+      raise InsufficientInformationError
     else
       truncate(result)
     end
