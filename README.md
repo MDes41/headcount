@@ -110,7 +110,7 @@ title_i_in_year(year)
 
 ## Headcount Analyst
 
-Please check out the ```headcount_analyst.rb``` file for further analysis methods that analize the data accrosse race and grade type.
+Please check out the ```headcount_analyst.rb``` file for further analysis methods that analyze the data accrosse race and grade type.
 
 ####contact one of the collaborators on the repo for further details. Thanks!
 
