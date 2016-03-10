@@ -1,7 +1,6 @@
 require_relative 'test_helper'
 require "minitest/autorun"
 require "minitest/pride"
-require 'pry'
 require_relative "../lib/district_repository"
 require_relative "../lib/district"
 

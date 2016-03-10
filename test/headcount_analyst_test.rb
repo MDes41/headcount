@@ -5,7 +5,6 @@ require_relative '../lib/headcount_analyst'
 require_relative '../lib/district_repository'
 require_relative '../lib/statewide_test'
 require_relative '../lib/errors'
-require 'pry'
 
 
 class HeadcountAnalystTest < Minitest::Test
