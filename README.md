@@ -55,7 +55,11 @@ district = dr.find_by_name("ACADEMY 20")
 enrollments = district.enrollment
 economic_profile = district.economic_profile
 ```
-
+###District Names
+A list of all the districts included in the reports can be accessed throug the district repository with:
+```ruby
+dr.district_names
+```
 ##Statewide Testing Information
 
 The statewide testing information can be called through the district instances with 
