@@ -1,15 +1,16 @@
+require_relative 'test_helper'
 require "minitest/autorun"
 require "minitest/pride"
 require_relative '../lib/headcount_analyst'
 require_relative '../lib/district_repository'
+require_relative '../lib/statewide_test'
 require 'pry'
-require_relative 'test_helper'
 
 
 class HeadcountAnalystTest < Minitest::Test
 
   def test_average_districts_participation_for_one_district_is_calculated_correctly
-    # skip
+    skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -24,7 +25,7 @@ class HeadcountAnalystTest < Minitest::Test
   end
 
   def test_kindergarten_participation_rate_variation_gets_the_correct_value
-    # skip
+    skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -39,7 +40,7 @@ class HeadcountAnalystTest < Minitest::Test
   end
 
   def test_kindergarten_participation_rate_variation_against_another_district_gets_the_correct_value
-    # skip
+    skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -54,7 +55,7 @@ class HeadcountAnalystTest < Minitest::Test
   end
 
   def test_kindergarten_participation_rate_variation_trend_calculates_trending_participation_rates
-    # skip
+    skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -83,7 +84,7 @@ class HeadcountAnalystTest < Minitest::Test
   end
 
   def test_kindergarten_participation_rate_variation_trend_calculates_trending_participation_rates
-    # skip
+    skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -100,7 +101,7 @@ class HeadcountAnalystTest < Minitest::Test
   end
 
   def test_that_kindergarten_participation_correlates_with_high_school_graduation
-    # skip
+    skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -117,7 +118,7 @@ class HeadcountAnalystTest < Minitest::Test
   end
 
   def test_that_kindergarten_participation_against_high_school_graduation_works_statewide
-    # skip
+    skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -134,6 +135,7 @@ class HeadcountAnalystTest < Minitest::Test
   end
 
   def test_that_kindergarten_participation_against_high_school_graduation_works_across_multiple_districts
+    skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -150,6 +152,128 @@ class HeadcountAnalystTest < Minitest::Test
 
     assert_equal output, evaluate
   end
+
+  def test_percentage_growth_for_district_calculates_the_correct_percentage_growth_across_three_methods
+    ha = HeadcountAnalyst.new
+    input3 = {:proficiency_by_year_3g =>
+              {2008=>{:math=>0.4, :reading=>0.4, :writing=>"N/A"},
+               2009=>{:math=>0.8, :reading=>"N/A", :writing=>0.536},
+               2010=>{:math=>"N/A",   :reading=>0.8, :writing=>0.504}}}
+    input8 = {:proficiency_by_year_8g =>
+               {2008=>{:math=>0.697, :reading=>0.4, :writing=>"N/A"},
+                2009=>{:math=>0.691, :reading=>"N/A", :writing=>0.4},
+                2010=>{:math=>"N/A", :reading=>0.8, :writing=>0.8}}}
+
+    st3 = StatewideTest.new(input3)
+    st8 = StatewideTest.new(input8)
+    assert_equal 0.4, ha.percentage_growth_for_district(st3, :math, 3)
+    assert_equal 0.2, ha.percentage_growth_for_district(st3, :reading, 3)
+    assert_equal 0.4, ha.percentage_growth_for_district(st8, :writing, 8)
+    assert_equal 0.2, ha.percentage_growth_for_district(st8, :reading, 8)
+  end
+
+  def test_proficiency_accross_valid_years_finds_the_proficiencies_in_subject_and_year_range
+    skip
+    ha = HeadcountAnalyst.new
+    input = {:proficiency_by_year_3g =>
+              {2008=>{:math=>0.697, :reading=>0.703, :writing=>"N/A"},
+               2009=>{:math=>0.691, :reading=>"N/A", :writing=>0.536},
+               2010=>{:math=>"N/A",   :reading=>0.726, :writing=>0.504}}}
+
+    st = StatewideTest.new(input)
+    result = ha.proficiency_accross_valid_years(st, :math, 3, [2008, 2009])
+    assert_equal [0.697, 0.691], result
+  end
+
+  def test_find_valid_years_across_district_takes_proficiency_data_and_only_takes_years_with_valid_years
+    skip
+    ha = HeadcountAnalyst.new
+    input = {:proficiency_by_year_3g =>
+              {2008=>{:math=>0.697, :reading=>0.703, :writing=>"N/A"},
+               2009=>{:math=>0.691, :reading=>"N/A", :writing=>0.536},
+               2010=>{:math=>"N/A",   :reading=>0.726, :writing=>0.504}}}
+
+    result = ha.proficiency_accross_valid_years(proficiencies, subject, 3, year_range)
+    assert_equal [2008, 2009], result
+    result2 = ha.find_valid_years_across_district(input, :reading)
+    assert_equal [2008, 2010], result2
+    result3 = ha.find_valid_years_across_district(input, :writing)
+    assert_equal [2009, 2010], result3
+  end
+
+  def test_average_percentage_growth_accross_years_returns_average_of_proficiency_accross_years
+    ha = HeadcountAnalyst.new
+    years = [2005, 2007]
+    proficiency = [0.3, 0.9]
+    result = ha.average_percentage_growth_accross_years(years, proficiency)
+    assert_equal 0.3, result
+  end
+
+  def test_top_statewide_test_year_over_year_growth_returns_insufficient_information_if_a_valid_argument_is_not_called
+    skip
+    dr = DistrictRepository.new
+
+    dr.load_data({
+      :enrollment => {
+        :kindergarten => "./data/Kindergartners in full-day program.csv",
+        :high_school_graduation => "./data/High school graduation rates.csv",
+      },
+      :statewide_testing => {
+        :third_grade => "./data/3rd grade students scoring proficient or above on the CSAP_TCAP.csv",
+        :eighth_grade => "./data/8th grade students scoring proficient or above on the CSAP_TCAP.csv",
+        :math => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Math.csv",
+        :reading => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Reading.csv",
+        :writing => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Writing.csv"
+     },
+      :economic_profile => {
+        :median_household_income => "./data/Median household income.csv",
+        :children_in_poverty => "./data/School-aged children in poverty.csv",
+        :free_or_reduced_price_lunch => "./data/Students qualifying for free or reduced price lunch.csv",
+        :title_i => "./data/Title I students.csv"
+      }
+    })
+    ha = HeadcountAnalyst.new(dr)
+
+    result = ha.test_top_statewide_test_year_over_year_growth(grade: 9, subject: :math)
+    assert_equal "UnknownDataError", result
+  end
+
+  def test_top_statewide_test_year_over_year_growth_returns_insufficient_information_if_a_valid_argument_is_not_called
+    # skip
+    dr = DistrictRepository.new
+
+    dr.load_data({
+      :enrollment => {
+        :kindergarten => "./data/Kindergartners in full-day program.csv",
+        :high_school_graduation => "./data/High school graduation rates.csv",
+      },
+      :statewide_testing => {
+        :third_grade => "./data/3rd grade students scoring proficient or above on the CSAP_TCAP.csv",
+        :eighth_grade => "./data/8th grade students scoring proficient or above on the CSAP_TCAP.csv",
+        :math => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Math.csv",
+        :reading => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Reading.csv",
+        :writing => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Writing.csv"
+     },
+      :economic_profile => {
+        :median_household_income => "./data/Median household income.csv",
+        :children_in_poverty => "./data/School-aged children in poverty.csv",
+        :free_or_reduced_price_lunch => "./data/Students qualifying for free or reduced price lunch.csv",
+        :title_i => "./data/Title I students.csv"
+      }
+    })
+    ha = HeadcountAnalyst.new(dr)
+    result = ha.top_statewide_test_year_over_year_growth(grade: 3, subject: :math)
+    assert_equal ["WILEY RE-13 JT", 0.3], result
+    result1 = ha.top_statewide_test_year_over_year_growth(grade: 3, top: 3, subject: :math)
+    assert_equal [["WILEY RE-13 JT", 0.3], ["SANGRE DE CRISTO RE-22J", 0.071], ["COTOPAXI RE-3", 0.07]], result1
+    result3 = ha.top_statewide_test_year_over_year_growth(grade: 3)
+    assert_equal ["WILEY RE-13 JT", 0.3], result3
+    result4 = ha.top_statewide_test_year_over_year_growth(grade: 3, :weighting => {:math => 0.5, :reading => 0.5, :writing => 0.0})
+    assert_equal ["WILEY RE-13 JT", 0.15], result4
+  end
+
+
+
 
 
 

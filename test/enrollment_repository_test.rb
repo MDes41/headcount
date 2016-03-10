@@ -1,7 +1,7 @@
+require_relative 'test_helper'
 require "minitest/autorun"
 require "minitest/pride"
 require_relative "../lib/enrollment_repository"
-require_relative 'test_helper'
 
 class EnrollmentRepositoryTest < Minitest::Test
 

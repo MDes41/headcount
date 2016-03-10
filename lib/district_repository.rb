@@ -7,7 +7,7 @@ require_relative './statewide_test_repository'
 require_relative './economic_profile_repository'
 
 class DistrictRepository
-  attr_reader :repo
+  attr_reader :repo, :district_instances
 
   def load_data(hash_of_file_paths)
     @repo ||= LoadData.new.load_data(hash_of_file_paths)

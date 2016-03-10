@@ -3,7 +3,7 @@ require "minitest/pride"
 require 'pry'
 
 class StatewideTest
-  attr_reader :name
+  attr_reader :name, :proficiency_by_year_3g, :proficiency_by_year_8g
 
   def initialize(hash_of_data)
     @name = hash_of_data[:name]

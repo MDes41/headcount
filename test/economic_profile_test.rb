@@ -1,7 +1,7 @@
+require_relative './test_helper'
 require 'minitest/autorun'
 require 'minitest/pride'
 require_relative '../lib/economic_profile'
-require_relative './test_helper'
 
 class EconomicProfileTest < Minitest::Test
   def test_that_economic_profile_class_creates_a_district_with_a_name
