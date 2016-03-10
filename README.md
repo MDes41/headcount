@@ -1,7 +1,6 @@
 ## Headcount
 
 **Project completed by Matthew DesMarteau and Christine Gamble**
-Original Assigment Markdown (https://github.com/turingschool/curriculum/blob/master/source/projects/headcount.markdown)
 
 This project was a two week project completed at Turing School of Design and Sofware as a final project for Module 1.  It contains a collection of data centered around schools in Colorado provided by the Annie E. Casey foundation.  
 
@@ -56,6 +55,9 @@ district = dr.find_by_name("ACADEMY 20")
 enrollments = district.enrollment
 economic_profile = district.economic_profile
 ```
+
+##Statewide Testing Information
+
 The statewide testing information can be called through the district instances with 
 ```ruby
 statewide_test = district.statewide_test
@@ -75,10 +77,7 @@ other methods in the statewide testing repositoring include:
 statewide_test.proficient_for_subject_by_grade_in_year(subject,grade,year)
 proficient_for_subject_by_race_in_year(subject,race, year)
 ```
-with valid subjects of ```:math```, ```:reading```, and ```:writing```
-with valid grades of ```3``` and ```8```
-and valid years ```2000``` through ```2014```
-
+with valid subjects of ```:math```, ```:reading```, and ```:writing``` with valid grades of ```3``` and ```8``` and valid  years ```2000``` through ```2014```
 
 
 
