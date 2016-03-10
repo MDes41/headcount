@@ -70,11 +70,11 @@ class EconomicProfile
   end
 
   def free_or_reduced_price_lunch_percentage_in_year(year)
-    result = @free_or_reduced_price_lunch[year][:percentage]
-    if result == []
+    result = @free_or_reduced_price_lunch[year]
+    if result == nil
       raise InsufficientInformationError
     else
-      truncate(result)
+      truncate(result[:percentage])
     end
   end
 

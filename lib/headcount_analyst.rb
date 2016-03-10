@@ -1,4 +1,5 @@
 require 'pry'
+require_relative 'errors'
 
 class HeadcountAnalyst
 
@@ -116,7 +117,7 @@ class HeadcountAnalyst
     subject = hash_of_input[:subject]
     grade = hash_of_input[:grade]
     top = hash_of_input[:top]
-    weighting = hash_of_input[:weighting]
+    weights = hash_of_input[:weighting]
     operators = hash_of_input.keys.sort
     case operators
     when [:grade, :top, :subject].sort
@@ -128,25 +129,27 @@ class HeadcountAnalyst
     when [:grade]
       growth_across_all_districts_all_subjects(grade).first
     when [:grade, :weighting].sort
-      growth_across_all_districts_all_subjects(grade, weighting).first
+      growth_across_all_districts_all_subjects(grade, weights).first
     else
-      "raise error"
+      raise InsufficientInformationError
     end
   end
 
-  def growth_across_all_districts_all_subjects(grade, weight = nil)
-    top_math = percentage_growth_accross_all_districts(:math, grade).sort_by {|k,v| -v}
-    top_writing = percentage_growth_accross_all_districts(:writing, grade).sort_by {|k,v| -v}
-    top_reading = percentage_growth_accross_all_districts(:reading, grade).sort_by {|k,v| -v}
-    top = [ top_math.first, top_reading.first, top_writing.first ]
-    if weight == nil
-      top.sort_by {|k,v| -v}
-    else
-      weights = [ weight[:math], weight[:reading], weight[:writing] ]
-      top.zip(weights).map do |top_with_weight|
-        [ top_with_weight[0][0], (top_with_weight[0][1] * top_with_weight[1]) ]
-      end.sort_by {|k,v| -v}
-    end
+  def growth_across_all_districts_all_subjects(grade, weights = nil)
+    top_math = percentage_growth_accross_all_districts(:math, grade).to_h
+    top_writing = percentage_growth_accross_all_districts(:writing, grade).to_h
+    top_reading = percentage_growth_accross_all_districts(:reading, grade).to_h
+    merge_district_data(top_math, top_writing, top_reading, weights)
+  end
+  #
+  def merge_district_data(top_math, top_writing, top_reading, weights)
+    weights = { math: 0.33333333, writing: 0.3333333, reading: 0.33333333 } unless weights
+    @district_repo.district_instances.map do |district|
+      adjusted_growth = ( (top_math[district.name] * weights[:math]) +
+                          (top_writing[district.name] * weights[:writing]) +
+                          (top_reading[district.name] * weights[:reading]) )
+      [ district.name, truncate(adjusted_growth) ]
+    end.sort_by { |k, v| -v }
   end
 
   def percentage_growth_accross_all_districts(subject, grade)
@@ -171,15 +174,17 @@ class HeadcountAnalyst
     end
   end
 
-
+  def grade_proficiencies(grade, proficiencies)
+    if grade == 3
+      proficiencies.proficiency_by_year_3g
+    elsif grade == 8
+      proficiencies.proficiency_by_year_8g
+    end
+  end
 
   def find_valid_years_across_district(proficiencies, subject, grade)
-    if grade == 3
-      grade_proficiencies = proficiencies.proficiency_by_year_3g
-    elsif grade == 8
-      grade_proficiencies = proficiencies.proficiency_by_year_8g
-    end
-    years = grade_proficiencies.map do |year, proficiency|
+    proficiencies_for_grade = grade_proficiencies(grade, proficiencies)
+    years = proficiencies_for_grade.map do |year, proficiency|
       year if proficiency[subject] != "N/A"
     end.compact
     [ years.min, years.max ]

@@ -292,14 +292,15 @@ class HeadcountAnalystTest < Minitest::Test
       }
     })
     ha = HeadcountAnalyst.new(dr)
+    district = dr.find_by_name("WILEY RE-13 JT")
     result = ha.top_statewide_test_year_over_year_growth(grade: 3, subject: :math)
     assert_equal ["WILEY RE-13 JT", 0.3], result
     result1 = ha.top_statewide_test_year_over_year_growth(grade: 3, top: 3, subject: :math)
     assert_equal [["WILEY RE-13 JT", 0.3], ["SANGRE DE CRISTO RE-22J", 0.071], ["COTOPAXI RE-3", 0.07]], result1
     result3 = ha.top_statewide_test_year_over_year_growth(grade: 3)
-    assert_equal ["WILEY RE-13 JT", 0.3], result3
+    assert_equal ["SANGRE DE CRISTO RE-22J", 0.07], result3
     result4 = ha.top_statewide_test_year_over_year_growth(grade: 3, :weighting => {:math => 0.5, :reading => 0.5, :writing => 0.0})
-    assert_equal ["WILEY RE-13 JT", 0.15], result4
+    assert_equal ["WILEY RE-13 JT", 0.118], result4
   end
 
 
