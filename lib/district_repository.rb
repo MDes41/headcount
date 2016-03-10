@@ -1,4 +1,3 @@
-require 'pry'
 require 'csv'
 require_relative './district'
 require_relative './load_data'
@@ -71,11 +70,11 @@ class DistrictRepository
   end
 
   def attach_statewide_test_instances(statewide_testing_by_district)
-  district_names.each do |district|
-    district_instance = find_by_name(district)
-    district_instance.statewide_test = statewide_testing_by_district[district].first
+    district_names.each do |district|
+      district_instance = find_by_name(district)
+      district_instance.statewide_test = statewide_testing_by_district[district].first
+    end
   end
-end
 
   def statewide_testing_by_district
     @statewide_repo.statewide_test_instances.group_by do |statewide_test_instance|
@@ -92,7 +91,6 @@ end
       enrollment[:location]
     end.keys
   end
-
 
   def district_instance_creator
     @district_instances ||= district_names.map do |district|

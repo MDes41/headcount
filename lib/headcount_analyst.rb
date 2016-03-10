@@ -111,11 +111,11 @@ class HeadcountAnalyst
     operators = hash_of_input.keys.sort
     case operators
     when [:grade, :top, :subject].sort
-      result = percentage_growth_accross_all_districts(subject, grade).sort_by {|k,v| -v}
-      result.take(top)
+      result = percentage_growth_accross_all_districts(subject, grade)
+      result.sort_by {|k,v| -v}.take(top)
     when [:grade, :subject].sort
-      result = percentage_growth_accross_all_districts(subject, grade).sort_by {|k,v| -v}
-      result.first
+      result = percentage_growth_accross_all_districts(subject, grade)
+      result.sort_by {|k,v| -v}.first
     when [:grade]
       growth_across_all_districts_all_subjects(grade).first
     when [:grade, :weighting].sort
@@ -131,7 +131,7 @@ class HeadcountAnalyst
     top_reading = percentage_growth_accross_all_districts(:reading, grade).to_h
     merge_district_data(top_math, top_writing, top_reading, weights)
   end
-  #
+
   def merge_district_data(top_math, top_writing, top_reading, weights)
     weights = { math: 0.33333333, writing: 0.3333333, reading: 0.33333333 } unless weights
     @district_repo.district_instances.map do |district|
@@ -193,4 +193,5 @@ class HeadcountAnalyst
   def truncate(value)
       ((value.to_f * 1000).floor / 1000.0 )
   end
+
 end
