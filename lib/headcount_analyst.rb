@@ -1,5 +1,5 @@
 require 'pry'
-require_relative 'errors'
+require 'errors'
 
 class HeadcountAnalyst
 
@@ -77,23 +77,15 @@ class HeadcountAnalyst
     false_array = Array.new
     true_array = Array.new
     if districts
-        districts.map do |district|
-        result = find_if_variation_is_true_or_false(district)
-          if result == true
-            true_array.push(result)
-          else
-            false_array.push(result)
-          end
-        end
-        correlation_above_seventy_percent?(true_array, false_array)
+      districts.map do |district|
+      result = find_if_variation_is_true_or_false(district)
+        result == true ? true_array.push(result) : false_array.push(result)
+      end
+      correlation_above_seventy_percent?(true_array, false_array)
     elsif district == "STATEWIDE"
       @district_repo.district_names.map do |district|
       result = find_if_variation_is_true_or_false(district)
-        if result == true
-          true_array.push(result)
-        else
-          false_array.push(result)
-        end
+        result == true ? true_array.push(result) : false_array.push(result)
       end
       correlation_above_seventy_percent?(true_array, false_array)
     else
@@ -110,8 +102,6 @@ class HeadcountAnalyst
     total_count = true_array.count + false_array.count
     true_array.count > 0.7*(total_count) ? true : false
   end
-
-  #statewide testing analysis
 
   def top_statewide_test_year_over_year_growth(hash_of_input)
     subject = hash_of_input[:subject]

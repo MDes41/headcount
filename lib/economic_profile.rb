@@ -72,18 +72,17 @@ class EconomicProfile
   def free_or_reduced_price_lunch_percentage_in_year(year)
     result = @free_or_reduced_price_lunch[year]
     if result == nil
-      raise InsufficientInformationError
+      raise UnknownDataError
     else
       truncate(result[:percentage])
     end
   end
 
   def free_or_reduced_price_lunch_number_in_year(year)
-    result = @free_or_reduced_price_lunch[year][:total]
-    if result == nil
-      raise InsufficientInformationError
+    if result = @free_or_reduced_price_lunch[year]
+      truncate(result[:total])
     else
-      truncate(result)
+      raise InsufficientInformationError
     end
   end
 

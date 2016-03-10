@@ -77,9 +77,7 @@ class EconomicProfileTest < Minitest::Test
 
     economic_profile = EconomicProfile.new(data)
 
-    assert_raises(UnknownDataError) do
-      economic_profile.children_in_poverty_in_year(24)
-    end
+    assert_raises(UnknownDataError) { economic_profile.children_in_poverty_in_year(24) }
   end
 
   def test_children_in_poverty_in_year_returns_a_float_representing_a_percentage
@@ -107,14 +105,14 @@ class EconomicProfileTest < Minitest::Test
     assert_equal 0.023, economic_profile.free_or_reduced_price_lunch_percentage_in_year(2014)
   end
 
-  # def test_free_or_reduced_price_lunch_number_in_year_raises_unknown_data_error_if_year_is_invalid
-  #   data = {:free_or_reduced_price_lunch => {2014 => {:percentage => 0.023, :total => 100}}}
-  #   economic_profile = EconomicProfile.new(data)
-  #
-  #   assert_raises(InsufficientInformationError) do
-  #    economic_profile.free_or_reduced_price_lunch_number_in_year(2011)
-  #  end
-  # end
+  def test_free_or_reduced_price_lunch_number_in_year_raises_unknown_data_error_if_year_is_invalid
+    data = {:free_or_reduced_price_lunch => {2014 => {:percentage => 0.023, :total => 100}}}
+    economic_profile = EconomicProfile.new(data)
+
+    assert_raises(InsufficientInformationError) do
+      economic_profile.free_or_reduced_price_lunch_number_in_year(2011)
+    end
+  end
 
   def test_free_or_reduced_price_lunch_number_in_year_returns_a_float_representing_a_percentage
     data = {:free_or_reduced_price_lunch => {2014 => {:percentage => 0.023, :total => 100}}}
