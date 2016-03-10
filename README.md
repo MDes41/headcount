@@ -56,7 +56,7 @@ enrollments = district.enrollment
 economic_profile = district.economic_profile
 ```
 ###District Names
-A list of all the districts included in the reports can be accessed throug the district repository with:
+A list of all the districts included in the project can be accessed through the district repository with:
 ```ruby
 dr.district_names
 ```
