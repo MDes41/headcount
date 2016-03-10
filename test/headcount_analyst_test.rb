@@ -223,11 +223,13 @@ class HeadcountAnalystTest < Minitest::Test
                2009=>{:math=>0.691, :reading=>"N/A", :writing=>0.536},
                2010=>{:math=>"N/A",   :reading=>0.726, :writing=>0.504}}}
 
-    result = ha.proficiency_accross_valid_years(proficiencies, subject, 3, year_range)
+    st = StatewideTest.new(input)
+
+    result = ha.find_valid_years_across_district(st, :math, 3)
     assert_equal [2008, 2009], result
-    result2 = ha.find_valid_years_across_district(input, :reading)
+    result2 = ha.find_valid_years_across_district(st, :reading, 3)
     assert_equal [2008, 2010], result2
-    result3 = ha.find_valid_years_across_district(input, :writing)
+    result3 = ha.find_valid_years_across_district(st, :writing, 3)
     assert_equal [2009, 2010], result3
   end
 
