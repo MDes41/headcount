@@ -51,9 +51,6 @@ dr.load_data({
   }
 })
 district = dr.find_by_name("ACADEMY 20")
-
-enrollments = district.enrollment
-economic_profile = district.economic_profile
 ```
 ###District Names
 A list of all the districts included in the project can be accessed through the district repository with:
@@ -83,6 +80,39 @@ proficient_for_subject_by_race_in_year(subject,race, year)
 ```
 with valid subjects of ```:math```, ```:reading```, and ```:writing``` with valid grades of ```3``` and ```8``` and valid  years ```2000``` through ```2014```
 
+##Enrollment Repository
+
+The enrollment repository can be accessed through the district repository with:
+```ruby
+enrollments = district.enrollment
+```
+The following methods are included in the enrollment repository
+```ruby
+enrollments.kindergarten_participation_by_year
+enrollments.kindergarten_participation_in_year(year)
+enrollments.graduation_rate_by_year
+enrollments.graduation_rate_in_year(year)
+```
+##Economic Profile
+The economic profiles can be accessed with:
+```ruby
+economic_profile = district.economic_profile
+```
+The following methods are included in the economic profile repository:
+```ruby
+median_household_income_in_year(year)
+median_household_income_average
+children_in_poverty_in_year(year)
+free_or_reduced_price_lunch_percentage_in_year(year)
+free_or_reduced_price_lunch_number_in_year(year)
+title_i_in_year(year)
+```
+
+## Headcount Analyst
+
+Please check out the ```headcount_analyst.rb``` file for further analysis methods that analize the data accrosse race and grade type.
+
+####contact one of the collaborators on the repo for further details. Thanks!
 
 
 
