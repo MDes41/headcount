@@ -1,4 +1,3 @@
-require 'pry'
 require 'errors'
 
 class HeadcountAnalyst

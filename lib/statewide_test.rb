@@ -1,6 +1,5 @@
 require "minitest/autorun"
 require "minitest/pride"
-require 'pry'
 
 class StatewideTest
   attr_reader :name, :proficiency_by_year_3g, :proficiency_by_year_8g
