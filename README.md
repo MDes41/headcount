@@ -6,7 +6,7 @@ This project was a two week project completed at Turing School of Design and Sof
 
 Ultimately, a crude visualization of the structure might look like this:
 
-```ruby
+```
 - District: Gives access to all the data relating to a single, named school district
 |-- Enrollment: Gives access to enrollment data within that district, including:
 |  | -- Dropout rate information
