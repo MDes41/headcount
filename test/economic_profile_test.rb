@@ -6,6 +6,7 @@ require_relative '../lib/statewide_test_repository'
 require_relative '../lib/statewide_test'
 require_relative '../lib/errors'
 
+
 class EconomicProfileTest < Minitest::Test
   def test_that_economic_profile_class_creates_a_district_with_a_name
     ep = EconomicProfile.new(name: "ACADEMY 20")
